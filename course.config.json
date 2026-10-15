@@ -331,6 +331,7 @@
       ],
       "topics": [
         "Async sprint closeout: standup #2, in the room",
+        "Cross-project functions kickoff: meet your function, pick a first item",
         "Clinic slots on blockers carried out of the sprint"
       ],
       "notes": "Checkpoint 1 · recovers the Monday session lost to Indigenous Peoples' Day · async sprint closes here",
@@ -372,7 +373,7 @@
     },
     {
       "lectureId": "s17-presentations-1",
-      "title": "Student Presentations 1: two readings, two groups",
+      "title": "Reading Presentations 1: Code Review at Google · Flaky Tests",
       "dates": [
         "2026-10-21"
       ],
@@ -380,10 +381,7 @@
         "R4: Code review at Google (Sadowski et al., ICSE-SEIP 2018) · Abhinav, Aryan and Colin",
         "R1: Flaky tests (Luo et al., FSE 2014) · Ali and Rishi"
       ],
-      "notes": "A group of three and a pair, one reading each, from the 13-reading list in the reading-presentation handout. Pre-reads posted 48h ahead.",
-      "materials": {
-        "slides": "/lecture-slides/s17-presentations-1"
-      }
+      "notes": "A group of three and a pair, one reading each, from the 13-reading list in the reading-presentation handout. Pre-reads posted 48h ahead. Running order: R4 first, then R1, which leads into Game Day 1 the next day. 30 minutes each: 20 of talk, 10 of discussion."
     },
     {
       "lectureId": "s18-game-day-1",
@@ -417,18 +415,15 @@
     },
     {
       "lectureId": "s20-presentations-2",
-      "title": "Student Presentations 2: two readings, two pairs",
+      "title": "Reading Presentations 2: Copilot Productivity · AI Slop",
       "dates": [
         "2026-10-28"
       ],
       "topics": [
-        "R12: An endless stream of AI slop (Baltes, Cheong and Treude, 2026) · Naman and Zhirui",
-        "R11: Copilot usability and perceived productivity (Vaithilingam et al., CHI 2022 EA; Ziegler et al., CACM 2024) · Bohan and Som"
+        "R11: Copilot usability and perceived productivity (Vaithilingam et al., CHI 2022 EA; Ziegler et al., CACM 2024) · Bohan and Som",
+        "R12: An endless stream of AI slop (Baltes, Cheong and Treude, 2026) · Naman and Zhirui"
       ],
-      "notes": "Two pairs, one reading each, from the 13-reading list in the reading-presentation handout. Pre-reads posted 48h ahead.",
-      "materials": {
-        "slides": "/lecture-slides/s20-presentations-2"
-      }
+      "notes": "Two pairs, one reading each, from the 13-reading list in the reading-presentation handout. Pre-reads posted 48h ahead. Running order: R11 first, then R12, which argues with it. 30 minutes each: 20 of talk, 10 of discussion."
     },
     {
       "lectureId": "s21-demo-day-2",
@@ -442,7 +437,7 @@
       "materials": {
         "slides": "/lecture-slides/s21-demo-day-2"
       },
-      "notes": "First implementation tickets demoed and due. Promotion to production"
+      "notes": "First implementation tickets demoed review-ready from preview deploys. Code Review 1 assigned. Promotion to production"
     },
     {
       "lectureId": "s22-standup",
@@ -552,17 +547,16 @@
       }
     },
     {
-      "lectureId": "s29-game-day-3",
+      "lectureId": "s29-studio",
       "title": "Studio Work Session",
       "dates": [
         "2026-11-19"
       ],
       "topics": [
-        "Two faults, one irrelevant",
-        "Hypothesis discipline",
-        "Your first theory is wrong"
+        "Team work time",
+        "Clinic: blockers before feature freeze"
       ],
-      "notes": "Not announced — students should not know it is a drill until they notice"
+      "notes": "Team work session ahead of the Nov 23 feature freeze."
     },
     {
       "lectureId": "s30-feature-freeze",
@@ -597,18 +591,15 @@
     },
     {
       "lectureId": "s32-presentations-3",
-      "title": "Student Presentations 3: two readings, two pairs",
+      "title": "Reading Presentations 3: ORM Anti-Patterns · GenAI Accessibility Checking",
       "dates": [
         "2026-12-02"
       ],
       "topics": [
-        "R9: GenAI accessibility checking (He, Huq and Malek, FSE 2025) · David and Lina",
-        "R8: ORM performance anti-patterns (Chen et al., ICSE 2014) · Nour and Adhiraj"
+        "R8: ORM performance anti-patterns (Chen et al., ICSE 2014) · Nour and Adhiraj",
+        "R9: GenAI accessibility checking (He, Huq and Malek, FSE 2025) · David and Lina"
       ],
-      "notes": "Two pairs, one reading each, from the 13-reading list in the reading-presentation handout. Pre-reads posted 48h ahead.",
-      "materials": {
-        "slides": "/lecture-slides/s32-presentations-3"
-      }
+      "notes": "Two pairs, one reading each, from the 13-reading list in the reading-presentation handout. Pre-reads posted 48h ahead. Running order: R8 first, then R9. 30 minutes each: 20 of talk, 10 of discussion."
     },
     {
       "lectureId": "s33-demo-day-4",
@@ -720,7 +711,7 @@
       "type": "project",
       "assignedDate": "2026-09-28",
       "dueDate": "2026-10-01",
-      "notes": "Team assignment. Pawtograder group repo holds charter.md and notes/. Sections 1\u20137 drafted in class Mon 9/28; section 8 (sprint objectives) filled when objectives are ratified Thu 10/1. Not banded, required; read at Checkpoint 1.",
+      "notes": "Team assignment. Pawtograder group repo holds charter.md and notes/. Sections 1–7 drafted in class Mon 9/28; section 8 (sprint objectives) filled when objectives are ratified Thu 10/1. Not banded, required; read at Checkpoint 1.",
       "url": "/docs/assignments/team-charter"
     },
     {
@@ -755,9 +746,27 @@
       "title": "First Implementation Ticket",
       "type": "homework",
       "assignedDate": "2026-10-15",
-      "dueDate": "2026-10-29",
-      "notes": "Assigned at Demo Day 1, in your team's project area, and drawn from what your async-sprint spike turned up. Merged to staging by Thu 10/29 and verified in your team's demo class; a course feature flag only if the change is user-visible and unfinished. Demoed at Demo Day 2.",
+      "dueDate": "2026-11-04",
+      "notes": "Assigned at Demo Day 1. Default is a ticket from your own project; an XL pool ticket claimed in the Agents Activity carries over. Scope agreed by Mon 10/19. Review-ready by Thu 10/29 and demoed from the preview deploy at Demo Day 2. Reviewed through Code Review 1, merged by Jon, and verified in your team's demo class by Wed 11/4.",
       "url": "/docs/assignments/first-implementation-ticket"
+    },
+    {
+      "id": "code-review-1",
+      "title": "Code Review 1: First Implementation Tickets",
+      "type": "homework",
+      "assignedDate": "2026-10-29",
+      "dueDate": "2026-11-01",
+      "notes": "Assigned in Pawtograder at Demo Day 2. Two first-ticket stacks to review, one from your team and one from another team. GitHub review comments on the PRs; submit the links in Pawtograder by Sun 11/1 23:59. Counts toward the Pass review count (6, at least 2 outside your team) and the Credit requirement of 3 reviews that changed the code.",
+      "url": "/docs/assignments/code-review"
+    },
+    {
+      "id": "cross-project-functions",
+      "title": "Cross-Project Functions",
+      "type": "project",
+      "assignedDate": "2026-10-14",
+      "dueDate": "2026-12-10",
+      "notes": "Standing responsibility, no separate deliverable. Roster on Discord Sat 10/10, swaps by standup Wed 10/14, function named in charter section 1 after kickoff. Feeds the Distinction requirement: work delivered through your function, outside your own project area. Checkpoints 2 and 3 ask for links.",
+      "url": "/docs/assignments/cross-project-functions"
     },
     {
       "id": "checkpoint-2",
@@ -794,11 +803,11 @@
     },
     {
       "id": "game-day-postmortems",
-      "title": "Game Day Postmortems (3)",
+      "title": "Game Day Postmortems (2)",
       "type": "project",
       "assignedDate": "2026-10-22",
       "dueDate": "2026-12-03",
-      "notes": "One postmortem per game day, due within 48h of each. Each postmortem names an action each team member took during the response."
+      "notes": "Two postmortems, one for Game Day 1 (Oct 22) and one for Game Day 2 (Nov 5), each due within 48h of its game day. Each postmortem names an action each team member took during the response."
     },
     {
       "id": "checkpoint-3",

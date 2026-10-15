@@ -1,0 +1,313 @@
+---
+sidebar_position: 14
+title: "Standup + Clinic"
+image: /img/lectures/s14-standup-clinic.png
+---
+
+import RevealJS, { Slide } from '@site/src/components/RevealJS';
+import Img from '@site/src/components/Img';
+
+<RevealJS transition="slide">
+
+{/* ============================================ */}
+{/* COVER IMAGE */}
+{/* ============================================ */}
+
+<Slide>
+
+  <Img
+    src="/img/lectures/s14-standup-clinic.png"
+    prompt="Concept: 'The expedition regroups: four scout teams return to base camp, and five crews form across them.' 8-bit lo-fi pixel art, retro game aesthetic, clean outlines, 16:9 landscape. The same base camp from the sprint kickoff, now at morning, in cool teal and blue with warm amber campfire light. Four small pixel teams walk back into camp from four valley paths, each carrying a rolled-up map and a notebook, looking tired but pleased. In the center of camp, people from different teams are stepping into five small colored circles drawn on the ground, each circle marked with a simple icon: a gear, an eye, a book, a gauge, and a robot head. A large wooden board at the camp gate is covered in pinned notes. Top banner reads 'S14: Standup + Clinic'. Optional tagline reads 'Back in the Room. One Crew Across Teams.' Bottom text reads 'CS 4535: Software Design and Delivery'."
+    alt="Pixel art of a base camp at morning. Four small teams walk back in from valley paths carrying maps and notebooks. In the middle of camp, people from different teams step into five colored circles marked with a gear, an eye, a book, a gauge, and a robot head."
+  />
+
+<aside className="notes">
+**Session:** Wed Oct 14 · Standup + Clinic · 65 min
+
+**One spine: close the sprint, open the functions, set up tomorrow.** First session back after two weeks async. It recovers the Monday lost to Indigenous Peoples' Day.
+
+**Structure.**
+- **Reminders and title (~3 min, three slides).**
+- **Standup #2 (~20 min, one slide).** Every student, in the room. This is a Pass item for the sprint.
+- **Cross-project functions kickoff (~15 min, two slides).** Today functions sit together and pick a first item.
+- **Demo Day tomorrow (~5 min, one slide).**
+- **Clinic (~20 min, one slide).** Blockers carried out of the sprint, and teams with no labeled issues file them now.
+- Up next (~1 min).
+
+**About 64 of 65.** If standup runs long, take it out of clinic, never out of the functions kickoff. There is no other class time set aside for functions before Game Day 1.
+
+**Before class:**
+- The five `#fn-*` Discord channels exist and each function's members are in theirs.
+- The roster is posted on Discord and any swap requests are settled.
+- Look at the platform issues with each `team:` label. Note which teams still have none, for clinic.
+- Read the sprint artifacts in `notes/` so you can ask a pointed question at standup.
+
+> **Transition:** Reminders first.
+</aside>
+
+</Slide>
+
+{/* ============================================ */}
+{/* REMINDERS */}
+{/* ============================================ */}
+
+<Slide>
+
+## Reminders
+
+<div style={{fontSize: '0.8em', textAlign: 'left'}}>
+
+- **CLOSED:** Async sprint artifacts, revised charters, and the Checkpoint 1 survey, all Tue Oct 13. Feedback by **Mon Oct 19**
+- **TOMORROW:** Demo Day 1. Missing it without arranging in advance counts as two absences
+- **ASSIGNED TOMORROW:** First Implementation Ticket. Pick yours by **Mon Oct 19**
+- **MON OCT 19, 10:30:** Pre-reads for R4 and R1, the Oct 21 presentations
+
+</div>
+
+<aside className="notes">
+Keep this to 60 seconds. If anyone didn't submit the Checkpoint 1 survey, they should do it today and tell you. Submitting it is a Pass requirement, and it's late, but it isn't gone.
+
+> **Transition:** Here's today.
+</aside>
+
+</Slide>
+
+{/* ============================================ */}
+{/* TITLE */}
+{/* ============================================ */}
+
+<Slide>
+
+# CS 4535: Software Design & Delivery
+
+## Standup + Clinic
+
+<p style={{marginTop: '2em', fontSize: '0.8em', color: '#666'}}>
+  &copy;2026 Jonathan Bell, CC-BY-SA
+</p>
+
+<aside className="notes">
+**Framing, one sentence:** for two weeks each of you investigated one thing alone. Today we find out what the class learned, and you meet the people outside your team you'll be working with until December.
+
+> **Transition:** Standup, everyone, in the room.
+</aside>
+
+</Slide>
+
+{/* ============================================ */}
+{/* STANDUP #2 (~20 min)                         */}
+{/* ============================================ */}
+
+<Slide>
+
+## Standup #2
+
+<div style={{fontSize: '0.62em', textAlign: 'left'}}>
+
+<div style={{backgroundColor: 'rgba(42,157,143,0.12)', padding: '0.6em', borderRadius: '8px', marginBottom: '0.5em'}}>
+
+**One team at a time. About 90 seconds each.**
+
+1. **What your sprint found**, in one sentence a teammate can use. Point at the artifact in `notes/`.
+2. **What it changed.** Did your team's plan or first milestone move because of it?
+3. **What's blocking you**, and who you need it from.
+
+</div>
+
+<p style={{fontSize: '0.9em'}}>
+Then the team answers the question from both meetings: <strong>does anything we've learned change our plan?</strong>
+</p>
+
+</div>
+
+<aside className="notes">
+**Thirteen people at 90 seconds is about 20 minutes.** Keep a timer visible. Cut off anyone reading their artifact aloud and ask for the one sentence.
+
+**Push on point 1.** "I learned a lot about the OCR pipeline" isn't a finding. "The matcher fails on rotated scans, and here's the threshold" is.
+
+**Point 2 is where scope gets set.** The checkpoint table says Checkpoint 1 is "the risks you found, the scope you've set." If a team's answer to "does it change our plan" is no across the board, ask what the sprint was for.
+
+**Write blockers on the board** as they come up. They're the clinic queue.
+
+**Attendance:** standup #2 is the sprint's in-person Pass item. Note who's absent.
+
+> **Transition:** You've met your teams' findings. Now meet your function.
+</aside>
+
+</Slide>
+
+{/* ============================================ */}
+{/* FUNCTIONS KICKOFF (~15 min)                  */}
+{/* ============================================ */}
+
+<Slide>
+
+## Your Other Team
+
+<div style={{fontSize: '0.55em', textAlign: 'left'}}>
+
+| Function | Owns | Starts from |
+|---|---|---|
+| **Release and CI** | Actions pipelines, migrations, staging → production | #993, #1012, #814's e2e job, the promotion steps |
+| **Accessibility** | WCAG defects, axe findings, `a11y-judge` | 11 open `accessibility` issues, #910's 88 untriaged findings |
+| **Docs and handoff** | `mintlify-docs`, `docs/`, ops playbooks | #991, #1004, the ops playbook template |
+| **Observability** | Sentry, dashboards, game-day response | #951, #1025, #1022, **Game Day 1 on Oct 22** |
+| **AI research** | `CLAUDE.md`, `AGENTS.md`, evidence about agents | stale context files, the Agents Activity writeups |
+
+</div>
+
+<div style={{backgroundColor: 'rgba(100,150,255,0.14)', padding: '0.5em', borderRadius: '8px', fontSize: '0.55em', textAlign: 'left', marginTop: '0.4em'}}>
+
+**No meeting, no deliverable, no hours.** Notice when something in your area breaks anywhere in the product, then own the follow-up. Counts toward Distinction when the work lands **outside your own project area**.
+
+</div>
+
+<p style={{fontSize: '0.45em', textAlign: 'left', marginTop: '0.4em'}}>
+Handout: <a href="https://neu-se.github.io/CS4535-Fall-2026/docs/assignments/cross-project-functions">Cross-Project Functions</a>
+</p>
+
+<aside className="notes">
+**Two minutes on this slide.** The structure was on the syllabus from day one and in section 1 of the charter, but it wasn't running: three people wrote TBD, four named functions that don't exist, and nobody held Observability or AI research. That's why the roster was assigned on Saturday.
+
+**Say why Observability is first.** Game Day 1 is eight days away. When it starts, the room will ask the Observability members what the dashboards show, so they should know where the dashboards are by then.
+
+**Say the failure mode out loud:** the role becomes a title. You're the accessibility person and nothing about accessibility changes. Checkpoints 2 and 3 ask for links, and the judgment will name it if that's happening.
+
+**Divided loyalty is legitimate.** When the project and the function collide in the same week, say so at standup, with what you're choosing and why.
+
+> **Transition:** Go sit with them.
+</aside>
+
+</Slide>
+
+<Slide>
+
+## Sit With Your Function
+
+<div style={{backgroundColor: 'rgba(42,157,143,0.12)', padding: '0.6em', borderRadius: '8px', fontSize: '0.62em', textAlign: 'left'}}>
+
+**Move seats. About 10 minutes.**
+
+1. **Read your function's starting list** in the handout together.
+2. **Each person picks one item** to look at first. Ideally one outside your own project area.
+3. **Post it in your `#fn-` channel:** the item, your name, and what you'll do with it by Demo Day 2 (Oct 29).
+
+</div>
+
+<p style={{fontSize: '0.55em', textAlign: 'left', marginTop: '0.6em', color: '#666'}}>
+An XL item on your list can also be your First Implementation Ticket. Then one PR counts for both.
+</p>
+
+<aside className="notes">
+**Walk the room.** Observability first: make sure both of them know where Grafana and Sentry live and have logged in. AI research second: they have the least obvious starting point. Point them at the Agents Activity writeups already in the team repos.
+
+**The overlap with the first ticket matters.** Several pool tickets (#993, #1012, #991, #1004) are on function lists. A Release and CI member who isn't on Paper Exams, taking #993, gets a Pass item and the Distinction evidence from the same PR.
+
+**What "by Oct 29" means here:** a sentence. Nobody is committing to merge anything. "Read #1032 and comment with what it would let us see" is fine.
+
+> **Transition:** Back to your project teams. Tomorrow is Demo Day 1.
+</aside>
+
+</Slide>
+
+{/* ============================================ */}
+{/* DEMO DAY TOMORROW (~5 min)                   */}
+{/* ============================================ */}
+
+<Slide>
+
+## Tomorrow: Demo Day 1
+
+<div style={{fontSize: '0.6em', textAlign: 'left'}}>
+
+**Five minutes per team, then questions.** Live, in Pawtograder. Order drawn at the start.
+
+| Show | Say |
+|---|---|
+| The current product, in the flow you're changing | What a user can't do today |
+| What the sprint turned up | One or two findings, each with a teammate's name on it |
+| Your scope | What you're building by Nov 23, what you cut, and your first milestone date |
+
+</div>
+
+<p style={{fontSize: '0.55em', textAlign: 'left', marginTop: '0.6em'}}>
+Nothing has merged yet, and that's expected. Demo what exists and what you found.
+</p>
+
+<aside className="notes">
+**Why this format.** The sprint deliberately shipped nothing, so Demo Day 1 demos the problem and the plan. Teams that try to demo a branch on localhost will lose three minutes to setup. Tell them to use staging or production as a user would.
+
+**Everyone speaks.** Each finding has a teammate's name on it, which means each person says at least one sentence tomorrow.
+
+**Missing tomorrow counts as two absences** unless arranged in advance.
+
+> **Transition:** The last twenty minutes are clinic.
+</aside>
+
+</Slide>
+
+{/* ============================================ */}
+{/* CLINIC (~20 min)                             */}
+{/* ============================================ */}
+
+<Slide>
+
+## Clinic
+
+<div style={{fontSize: '0.62em', textAlign: 'left'}}>
+
+<div style={{backgroundColor: 'rgba(42,157,143,0.12)', padding: '0.5em', borderRadius: '8px', marginBottom: '0.5em'}}>
+
+**Work with your team.** I come to you, in the order blockers went on the board.
+
+</div>
+
+**If your team has no labeled issues on the platform yet,** file them now. The next two weeks' tickets, each small enough to claim, with your `team:` label. That was due with the sprint, and the first implementation tickets come out of it tomorrow.
+
+**Otherwise:** rehearse tomorrow's five minutes once, with a timer.
+
+</div>
+
+<aside className="notes">
+**Check the labels before class** and go to the teams with none first. As of Oct 9, only Cloud Workspaces had any (three spikes).
+
+**Blockers that are mine to unblock** (from the charter feedback): user-study recruiting and consent for Exams, Office Hours, and Usability; the k8s namespace for Cloud; the Usability ticket answers. Have answers ready, or say when they're coming.
+
+> **Transition:** Here's what's next.
+</aside>
+
+</Slide>
+
+{/* ============================================ */}
+{/* UP NEXT */}
+{/* ============================================ */}
+
+<Slide>
+
+## Up Next
+
+<div style={{fontSize: '0.85em', textAlign: 'left'}}>
+
+**Thu Oct 15, Demo Day 1**
+
+Five minutes per team: the problem, what the sprint found, and the scope you've set.
+
+</div>
+
+<div style={{fontSize: '0.75em', textAlign: 'left', marginTop: '1em'}}>
+
+**Before then:**
+
+- Post your first function item in your `#fn-` channel
+- Add your function to section 1 of `charter.md`
+- Rehearse your team's demo once, with a timer
+
+</div>
+
+<aside className="notes">
+Close on the transition. Students should leave knowing their function's first item and what their team shows tomorrow.
+</aside>
+
+</Slide>
+
+</RevealJS>

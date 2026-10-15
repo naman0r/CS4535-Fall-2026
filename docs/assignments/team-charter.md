@@ -50,7 +50,7 @@ Write the sections below in order. The template has the headings. Keep the whole
 
 **3. How we talk.** Which channel is for what, and where a decision counts as made. A decision made in a DM doesn't exist for the teammate who wasn't in it, so name the place decisions get written down: the team channel, an issue, or an ADR. Then the response time you owe each other on a weekday, and what you do when someone blows past it.
 
-**4. When we meet.** Book both async-sprint team meetings now, with a place or link: meeting 1 is Thu Oct 8 in our usual class time, and meeting 2 is any time from Fri Oct 9 to Mon Oct 12, with a date and time. Say who writes each summary, since the author has to rotate. Add a recurring weekly slot for after the sprint.
+**4. When we meet.** Book both async-sprint team meetings now, with a place or link: meeting 1 is any time up to Thu Oct 8 (our usual class time that day is set aside for it), and meeting 2 is any time from Fri Oct 9 to Tue Oct 13 (Oct 10–12 is a holiday weekend), with a date and time. Meeting more often is fine. Say who writes each summary, since the author has to rotate. Add a recurring weekly slot for after the sprint.
 
 **5. How we decide.** Who decides what. Most teams split decisions by ownership. The person who owns a piece of work decides inside it, and anything that crosses owners or can't be undone cheaply goes to the team. Say what happens when the team splits two against two, or one against two, and what gets written up as an ADR.
 
@@ -106,5 +106,7 @@ Commit to your Team Workspace repo in Pawtograder by **Thu Oct 1, 23:59 ET**. Yo
 | Charter drafted in class (sections 1–7) | Mon Sep 28 |
 | Sprint objectives ratified in class (section 8) | Thu Oct 1 |
 | **Charter committed** | **Thu Oct 1, 23:59** |
+| Section 8 fixed and both meetings booked, if feedback asked for it | Mon Oct 5, 23:59, in your team's response post |
+| **Revised charter committed**, addressing the feedback in Pawtograder | **Tue Oct 13, 23:59**, with the sprint artifacts |
 | Async-sprint artifacts committed to `notes/` | Tue Oct 13, 23:59 |
 | Charter read at Checkpoint 1 | Wed Oct 14 |

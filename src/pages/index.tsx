@@ -99,7 +99,7 @@ Style: pixel art, 16-bit retro aesthetic, detailed but readable at small sizes. 
 
           <h3>Game days</h3>
           <p style={{ lineHeight: 1.7, color: 'var(--ifm-color-emphasis-800)' }}>
-            Several times during the studio phase, something breaks. You get your own environment, a fault appears in it, and you have the session to detect it, triage it, mitigate it, and write the postmortem. The scenarios are drawn from real outages in our own infrastructure — including a CI failure that ran for twenty hours without logging a single error anywhere. They escalate: the first one is announced in advance, the last one isn't.
+            Twice during the studio phase, something breaks. You get your own environment, a fault appears in it, and you have the session to detect it, triage it, mitigate it, and write the postmortem. The scenarios are drawn from real outages in our own infrastructure — including a CI failure that ran for twenty hours without logging a single error anywhere. The first is announced in advance and narrated. The second puts a fault in your team's own demo class.
           </p>
 
           <h3>Async and integration</h3>

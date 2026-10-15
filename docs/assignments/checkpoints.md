@@ -18,7 +18,7 @@ Your team owns one area of Pawtograder from Oct 1 to Dec 10. The term has a shap
 | **Oct 2–13** | Async sprint | The risky questions answered. Each person investigates one thing the plan depends on, and the team adjusts scope |
 | **Tue Oct 13** | **Checkpoint 1** | **Progress.** The risks you found, the scope you've set, and a backlog of tickets someone could claim |
 | Thu Oct 15 | Demo Day 1 | What the sprint found. First implementation tickets assigned |
-| Thu Oct 29 | Demo Day 2 | First implementation tickets merged, deployed, and demoed |
+| Thu Oct 29 | Demo Day 2 | First implementation tickets review-ready and demoed from preview deploys. Code Review 1 assigned; merged by Wed Nov 4 |
 | **Thu Nov 5** | **Checkpoint 2** | **A mostly working thing.** The main flow runs on staging behind your course flag, in your team's demo class |
 | Thu Nov 12 | Demo Day 3 | The main flow, end to end |
 | Mon Nov 23 | Feature freeze | Nothing new lands after this |
@@ -80,13 +80,37 @@ A team that ships something good gives each member plenty to link. A team member
 **The survey asks you for:**
 
 1. A link to your sprint artifact, and one sentence on what a teammate can do with it
-2. Links to the reviews you've written so far
-3. Your team's study timing, and your part in it
-4. The band you're working toward, and for anything above Pass, the artifact you expect to link and where it stands
-5. The biggest risk to your part of the project, and what would help
+2. Your team's study timing, and your part in it
+3. How the sprint went for your team: four quick ratings and an optional comment. Your teammates don't see them
+4. The biggest risk to your part of the project, and what would help
 
-It takes about 15 minutes if your work is committed and linked.
+It takes about 10 minutes if your work is committed and linked.
 
-## Checkpoints 2 and 3
+## Checkpoint 2
 
-Same team review and the same survey, against the Checkpoint 2 and 3 rows in the table. Checkpoint 3 is also the last day to change the band you're working toward, and it's the draft of your Learning Summary Report: If you can't link an artifact to a requirement on Dec 3, it's too late to make one. Each gets its own section here when it opens.
+**Survey due Thu Nov 5, 23:59 ET**, the day of Game Day 2. Feedback within a week.
+
+**The team should be able to show:**
+
+- the main flow running on staging behind your course flag, in your team's demo class
+- every member's first implementation ticket merged and verified, or a written reason in the issue for what was scoped down
+- the backlog kept current: closed what's done, filed what's next
+- the user study running, or a date it runs by
+
+**The survey asks you for:**
+
+1. Your First Implementation Ticket: the PR (or the stack) and your deploy-verification post
+2. Your Game Day 1 postmortem, and the action you took during the response
+3. Where your team's user study stands, and your part in it
+4. Your [cross-project function](./cross-project-functions.md), and links to what you've done through it
+5. For each requirement above Pass that you're claiming, where it stands and the link, or what the link will be
+6. How your team is working: the same four ratings as Checkpoint 1, and an optional comment. Your teammates don't see them
+7. The biggest risk to your part of the project, and what would help
+
+Items 1 to 5 are laid out the way the Learning Summary Report will be: the requirement, then the link. Checkpoint 3 asks the same things, so what you write here carries forward.
+
+It takes about 15 minutes if your work is linked.
+
+## Checkpoint 3
+
+Same team review and the same survey, against the Checkpoint 3 row in the table. Checkpoint 3 is also the last day to change the band you're working toward, and it's the draft of your Learning Summary Report: If you can't link an artifact to a requirement on Dec 3, it's too late to make one. It gets its own section here when it opens.

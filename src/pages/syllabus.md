@@ -74,7 +74,7 @@ Teams own their project areas. The week settles into a rhythm:
 Punctuating that rhythm:
 
 - Demo days, roughly every two weeks. Live product, real environment, five minutes per team plus questions.
-- Game days, which are incident drills. You'll know that they exist; you won't always know when one is coming.
+- Two game days, which are incident drills, on Oct 22 and Nov 5.
 - Integration sessions, where cross-team coupling gets resolved in the room rather than over three days of messages.
 - The async sprint, Oct 2–13, while the instructor is at OOPSLA/ISSTA. Three sessions run asynchronously and you leave Oct 1 with a plan. Read the [participation](#participation) rules for what counts as attendance in that window.
 
@@ -92,7 +92,7 @@ You belong to a project team and to a **cross-project function**, one member fro
 | **Docs and handoff** | The [`pawtograder/mintlify-docs`](https://github.com/pawtograder/mintlify-docs) site, 96 pages across student, staff and developer audiences, plus the ops playbooks January depends on and the `docs/` tree in the platform repo |
 | **AI research** | The repo's agent context, [`CLAUDE.md`](https://github.com/pawtograder/platform/blob/main/CLAUDE.md) and [`AGENTS.md`](https://github.com/pawtograder/platform/blob/main/AGENTS.md), and the evidence about what agents are and aren't good for in this codebase |
 
-The function is a standing responsibility, and it is not a second project. You are the person who notices CI is broken and owns getting it fixed; you do not have to do all the CI work yourself.
+The function is a standing responsibility, and it is not a second project. You are the person who notices CI is broken and owns getting it fixed; you do not have to do all the CI work yourself. The [Cross-Project Functions](/docs/assignments/cross-project-functions) handout lists where each function starts and what counts as evidence.
 
 AI research is the one function whose subject is the course itself. Every team here works with agents all term, on the same codebase, under the same [AI policy](#ai-policy), and nobody currently writes down what that produces. This function does: it keeps the repo's context files accurate as the codebase moves, collects what worked and what wasted a week across all the project teams, and turns that into something the January cohort inherits rather than rediscovers. The standard is the same one [LO6](#grading) asks for everywhere else, which is evidence rather than assertion. "Agents are bad at migrations" is a claim; the three migration PRs where it went wrong, and what the prompts looked like, is a finding.
 
@@ -190,7 +190,7 @@ All eight outcomes at minimum standard. This is the comprehensive band, and a st
 - First implementation ticket merged, deployed, and verified running **(LO3)**
 - At least 6 substantive code reviews across the term, at least 2 outside your own team **(LO4)**
 - You answer review on your own PRs, with no thread left dead. Judged as a habit across the term rather than per comment **(LO4)**
-- All 3 game-day postmortems, each naming an action you took during the response **(LO5)**
+- Both game-day postmortems, for Game Days 1 and 2, each naming an action you took during the response **(LO5)**
 - Your merged work carries tests where the change warrants them, and a flag when user-visible work is unfinished **(LO5)**
 - At least one user-visible change shipped in your team's project area **(LO6)**
 - A user study of your team's project area with at least five real users, which you helped plan, run, or analyze, and whose findings are written up in your team repo by Checkpoint 3 (Dec 3). It can study the current system, a prototype, or your shipped change **(LO6)**
@@ -360,9 +360,8 @@ In CS 3100 this statement existed to model restraint, because AI use was restric
 
 Your agent sessions are captured as you work and pushed to a course-owned repository. The tool is [Entire](https://github.com/entireio/cli), an MIT-licensed CLI that hooks whichever agent you use and stores each session as a git object alongside the commit it produced. Setup is an install and one enable command in the first working session, walked through in class and written down at [/docs/local-dev](/docs/local-dev#session-capture). After that it rides along on `git push` and you stop thinking about it.
 
-This is part of the course rather than an extra, for three reasons:
+It's part of the course, for two reasons:
 
-- The [AI research function](#project-teams-and-cross-project-functions) works from it. That function owns the question of what agents are actually good for in this codebase, and it can't answer that from memory at the end of the term.
 - It's the evidence behind the standard above. "The agent wrote it" is not a defense, and a session record is what makes that checkable rather than merely asserted, including in your favor when you did the work and the diff doesn't show it.
 - It tells us where the class is stuck early enough to teach into it.
 

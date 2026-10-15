@@ -1,7 +1,7 @@
 ---
 sidebar_position: 15
 title: "Demo Day 1"
-image: /img/lectures/s15-demo-day-1.png
+image: /img/lectures/s15-demo-day-1.webp
 ---
 
 import RevealJS, { Slide } from '@site/src/components/RevealJS';
@@ -16,20 +16,34 @@ import Img from '@site/src/components/Img';
 <Slide>
 
   <Img
-    src="/img/lectures/s15-demo-day-1.png"
-    prompt="PLACEHOLDER concept: First demo: live product, real users, five minutes. 8-bit lo-fi pixel art, retro game aesthetic, clean outlines, teal and blue cool tones with warm amber accents, 16:9 landscape. Top banner reads Demo Day 1. Bottom text reads CS 4535: Software Design and Delivery."
-    alt="TODO: describe the cover image once generated."
+    src="/img/lectures/s15-demo-day-1.webp"
+    prompt="Concept: 'Show the map before you build the road.' 8-bit lo-fi pixel art, retro game aesthetic, clean outlines, 16:9 landscape. A small pixel lecture room in cool teal and blue. At the front, a team of three stands beside a large projected screen showing a simple product page with one area circled in warm amber. One teammate points at the circled area, another holds up a hand-drawn map with a flag marked 'NOV 23', and the third holds a stopwatch showing 10:00. In the audience, a few students raise hands with question marks above them, and the instructor sits at the side taking notes. Top banner reads 'S15: Demo Day 1'. Optional tagline reads 'The Problem, the Findings, the Plan.' Bottom text reads 'CS 4535: Software Design and Delivery'."
+    alt="Pixel art of a team of three demoing at the front of a room. One points at a circled area on a projected product page, one holds a map flagged Nov 23, and one holds a stopwatch at ten minutes. Students in the audience raise their hands."
   />
 
 <aside className="notes">
-**Session:** Thu Oct 15 · Demo Day 1
+**Session:** Thu Oct 15 · Demo Day 1 · 65 min
 
-**TODO — outline only.** Fill in the arc, timings and content slides.
+**One spine: four teams show the problem, what the sprint found, and the scope they've set. Then everyone leaves knowing how to pick a first implementation ticket by Monday.**
 
-**Topics on the schedule:** All teams demo on the live product, 5 minutes + questions
+**Structure.**
+- **Reminders, title, and format (~4 min, three slides).**
+- **Four demos (~40 min).** One 10-minute timer per team: 0–5 demo, 5–9 questions, 9–10 everyone finishes that team's worksheet while the next team sets up. Draw the order at the start.
+- **First Implementation Ticket (~10 min, one slide).**
+- **Up next (~2 min).**
 
+**About 56 of 65.** Demos always run long. Stop each demo at 5:00 and move to questions. The 10-minute timer doesn't stop for setup.
 
-> **Transition:** Reminders first, then what we're doing today.
+**Before class:**
+- Four slips of paper for the order draw, or a random picker.
+- Worksheets: `cs4535/demo-day-worksheets/demo-day-1-worksheet.pdf`, two half-sheets per page. Two pages per student, cut in half, gives each one four half-sheets (three to use, one spare).
+- Production and staging both up. A team whose live product won't load demos from its sprint repro or screenshots.
+- Sentry open on your laptop, in case a demo turns up an error.
+- Note one question per team from reading their sprint artifacts.
+
+**Attendance:** missing a demo day without arranging it in advance counts as two absences.
+
+> **Transition:** Reminders first.
 </aside>
 
 </Slide>
@@ -44,15 +58,17 @@ import Img from '@site/src/components/Img';
 
 <div style={{fontSize: '0.8em', textAlign: 'left'}}>
 
-- **FEEDBACK:** Async Sprint: Focused Learning + Team Sync (Oct 2–13) — closed Wed Oct 14; feedback coming back shortly
-- **FEEDBACK:** Checkpoint 1 — closed Tue Oct 13; feedback coming back shortly
+- **ASSIGNED TODAY:** First Implementation Ticket. Know it by the end of class, scope agreed by **Mon Oct 19**, review-ready **Thu Oct 29**, merged **Wed Nov 4**
+- **FEEDBACK:** Checkpoint 1 and the sprint, by **Mon Oct 19**
+- **MON OCT 19, 10:30:** Pre-reads for R4 and R1. Standup that day is a Discord post
+- **FUNCTIONS:** Your first item is posted in your `#fn-` channel
 
 </div>
 
 <aside className="notes">
-Keep this to 60 seconds. Deadlines and returning feedback only — questions about a specific assignment go to clinic or Discord.
+Sixty seconds. If anyone didn't post a function item yesterday, ask them to do it by tonight.
 
-> **Transition:** Now, today.
+> **Transition:** Here's how today runs.
 </aside>
 
 </Slide>
@@ -72,52 +88,143 @@ Keep this to 60 seconds. Deadlines and returning feedback only — questions abo
 </p>
 
 <aside className="notes">
-TODO: framing — why this session, and what it unblocks.
+**Framing:** the sprint shipped nothing on purpose. Today is the last demo where showing the problem and the plan is enough. On Oct 29, every demo shows a review-ready change running on its preview deploy.
 
-> **Transition:** Here's what you'll be able to do after today.
+> **Transition:** The format.
 </aside>
 
 </Slide>
 
 {/* ============================================ */}
-{/* LEARNING OBJECTIVES */}
+{/* FORMAT                                       */}
 {/* ============================================ */}
 
 <Slide>
 
-## Learning Objectives
+## Ten Minutes per Team
 
-<p style={{fontSize: '0.85em', textAlign: 'left'}}>
-After this session, you'll be able to:
+<div style={{fontSize: '0.6em', textAlign: 'left'}}>
+
+| Show | Say |
+|---|---|
+| The current product, in the flow you're changing | What a user can't do today |
+| What the sprint turned up | One or two findings, each with a teammate's name on it |
+| Your scope | What you're building by Nov 23, what you cut, and your first milestone date |
+
+</div>
+
+<div style={{backgroundColor: 'rgba(100,150,255,0.14)', padding: '0.5em', borderRadius: '8px', fontSize: '0.55em', textAlign: 'left', marginTop: '0.6em'}}>
+
+**10:00 timer:** 5 min demo · 4 min questions · 1 min to finish the worksheet. **Audience:** fill in a half-sheet for each team you watch, and each other team asks one question. The sheets go to the team at the end of class.
+
+</div>
+
+<aside className="notes">
+**Draw the order now, and hand out the worksheets.**
+
+**The question rule** keeps the room from going quiet: each other team owes one question per demo, so three student questions, then yours. A good question names something specific from the demo. "What happens if the scan is rotated?" works. "Cool, how long did that take?" doesn't count.
+
+**Your question for each team** should come from the sprint artifacts. The one most worth asking is usually: what did the sprint change about your plan?
+
+> **Transition:** First team.
+</aside>
+
+</Slide>
+
+{/* ============================================ */}
+{/* DEMOS                                        */}
+{/* ============================================ */}
+
+<Slide>
+
+## Demo 1
+
+<p style={{fontSize: '0.7em'}}>10:00 · demo 5 · questions 4 · worksheet 1</p>
+
+<aside className="notes">
+Start the 10:00 timer. At 5:00, stop and move to questions. At 9:00, call time on questions so everyone finishes their sheet. Write down the cut and the first milestone date each team names. They're what Demo Day 2 is checked against.
+</aside>
+
+</Slide>
+
+<Slide>
+
+## Demo 2
+
+<p style={{fontSize: '0.7em'}}>10:00 · demo 5 · questions 4 · worksheet 1</p>
+
+<aside className="notes">
+Start the 10:00 timer. Note the cut and the first milestone date.
+</aside>
+
+</Slide>
+
+<Slide>
+
+## Demo 3
+
+<p style={{fontSize: '0.7em'}}>10:00 · demo 5 · questions 4 · worksheet 1</p>
+
+<aside className="notes">
+Start the 10:00 timer. Note the cut and the first milestone date.
+</aside>
+
+</Slide>
+
+<Slide>
+
+## Demo 4
+
+<p style={{fontSize: '0.7em'}}>10:00 · demo 5 · questions 4 · worksheet 1</p>
+
+<aside className="notes">
+Start the 10:00 timer. Note the cut and the first milestone date.
+
+> **Transition:** Now that everyone has seen all four plans, pick your first implementation ticket.
+</aside>
+
+</Slide>
+
+{/* ============================================ */}
+{/* FIRST IMPLEMENTATION TICKET (~10 min)        */}
+{/* ============================================ */}
+
+<Slide>
+
+## Your First Implementation Ticket
+
+<div style={{fontSize: '0.58em', textAlign: 'left'}}>
+
+<div style={{backgroundColor: 'rgba(42,157,143,0.12)', padding: '0.5em', borderRadius: '8px', marginBottom: '0.5em'}}>
+
+**XL. Know it before you leave today. Scope agreed with me on the issue by Mon Oct 19. Review-ready Thu Oct 29. Merged Wed Nov 4.**
+
+- **Default: your own project.** Start from your sprint artifact, your team's filed issues, or your Agents Activity analysis
+- **Already claimed an XL pool ticket in the Agents Activity?** That's your ticket
+- **Pool:** two XL tickets left, #467 and #1026. Comment to claim
+
+</div>
+
+**XL means** more than one layer, and a one-sentence "done" that mentions a user. Steps 4 to 6 of the Agents Activity are how you scope it.
+
+**Review, then it ships.** On Oct 29 I assign two reviewers to each stack, one teammate and one from another team. Reviews are due Nov 1, and you answer within 48 hours. Then I merge, and you go look: click it in your team's demo class, check Sentry, and post the verification in your team channel.
+
+</div>
+
+<p style={{fontSize: '0.5em', textAlign: 'left', marginTop: '0.5em'}}>
+Handout: <a href="https://neu-se.github.io/CS4535-Fall-2026/docs/assignments/first-implementation-ticket">First Implementation Ticket</a>
 </p>
 
-<ol style={{fontSize: '0.75em', textAlign: 'left'}}>
-  <li>Demo working software in the real environment</li>
-  <li>Scope a demo to five minutes and lead with what changed for users</li>
-  <li>Take critical questions without defensiveness</li>
-  <li>Identify what your team ships next</li>
-</ol>
-
 <aside className="notes">
-TODO: time allocation across arcs.
+**Ten minutes.** Two minutes on the slide, then eight for picking, in the room, while you're here to agree scopes. **Goal: everyone leaves knowing their ticket.** Pool claims from the Agents Activity (Aryan, Zhirui, Bohan, Nour, David) carry over, so they're done. Go to the other eight first. Anyone with an own-project ticket opens the issue now and tags you.
 
-> **Transition:** Let's start.
-</aside>
+**Say the timing out loud:** Game Day 1 is Oct 22, in the middle of the window. A ticket picked on Oct 24 gets four working days.
 
-</Slide>
+**Point at the overlap with functions.** An XL item on your function's starting list that sits outside your team's area counts for both the Pass item and the Distinction evidence.
 
-{/* ============================================ */}
-{/* CONTENT — TODO                              */}
-{/* ============================================ */}
+**Review is assigned, through Pawtograder (Code Review 1).** Two reviewers per stack, one teammate and one cross-team, assigned Oct 29 and due Nov 1. You merge once both are addressed. So Oct 29 is review-ready: CI green, described, rollback sentence, preview deploy working.
 
-<Slide>
-
-## TODO: Content
-
-Outline only — content slides go here.
-
-<aside className="notes">
-TODO
+> **Transition:** Here's what's next.
 </aside>
 
 </Slide>
@@ -132,9 +239,9 @@ TODO
 
 <div style={{fontSize: '0.85em', textAlign: 'left'}}>
 
-**Mon Oct 19 — Standup + Clinic**
+**Mon Oct 19, Tech Talk: Operations**
 
-TODO: one-line transition from today into that session.
+Infrastructure as code, observability, and incident response, three days before Game Day 1.
 
 </div>
 
@@ -142,12 +249,16 @@ TODO: one-line transition from today into that session.
 
 **Before then:**
 
-- Nothing due. Keep the cadence anyway.
+- Get your ticket's XL scope agreed with me on the issue
+- Standup Mon Oct 19 is a Discord post by 10:30
+- R4 and R1 pre-reads, Mon Oct 19 by 10:30
 
 </div>
 
 <aside className="notes">
-Close on the transition, not the reminders — students should leave knowing what today was for.
+Before anyone leaves, sort the worksheets into four piles and hand each team its pile. Photograph each pile first: the sheets are the one record of what the room thought.
+
+Close on the transition. Students should leave knowing what their first ticket is, or exactly what they need to decide by Monday.
 </aside>
 
 </Slide>

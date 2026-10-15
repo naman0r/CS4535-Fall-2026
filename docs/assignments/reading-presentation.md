@@ -74,6 +74,18 @@ Rank your **top three** readings by number, one sentence each on why, and name t
 
 Pairs, readings, and session dates go up **Mon Sep 28**. Thirteen students make six groups: five pairs and one group of three. That fills the three sessions, two groups in each. The group of three presents in the same thirty-minute slot a pair gets, so the third person is a third of the talk rather than an extra ten minutes on the clock.
 
+## Schedule
+
+Each session runs two groups back to back, thirty minutes each: twenty of talk, then ten of discussion you run. Presenters are listed on the [schedule](/schedule).
+
+| Session | First 30 minutes | Second 30 minutes | Pre-read due |
+|---|---|---|---|
+| **1: Wed Oct 21** | R4, code review at Google | R1, flaky tests | Mon Oct 19, 10:30 |
+| **2: Wed Oct 28** | R11, Copilot usability and perceived productivity | R12, AI slop | Mon Oct 26, 10:30 |
+| **3: Wed Dec 2** | R8, ORM performance anti-patterns | R9, GenAI accessibility checking | Mon Nov 30, 10:30 |
+
+Start on time. If your talk runs past twenty minutes, the overrun comes out of your own discussion. The second group's slot stays whole.
+
 ## Instructions
 
 You're not summarizing the paper. The bar is whether the room can explain the core idea afterwards, which means deciding what to leave out. That's most of the work. A twenty-minute faithful summary of a fourteen-page paper is a worse outcome than eight minutes on the one idea that matters plus twelve on why it matters here.

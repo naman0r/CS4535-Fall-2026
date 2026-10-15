@@ -21,9 +21,10 @@ Everything in this collection is a **draft** until the semester begins. Dates an
 | [Team Workspace & Charter](./team-charter.md) | Team | Thu Oct 1 | Not banded, required · read at Checkpoint 1 |
 | [The Ticket Hunt](./ticket-hunt.md) | Individual | Wed Sep 16 | Pass |
 | [Onboarding: Gradebook Column Groups](./onboarding-column-groups.md) | Individual | Thu Sep 24 | Pass · banded internally |
-| [First Implementation Ticket](./first-implementation-ticket.md) | Individual | Thu Oct 29 | Pass |
+| [First Implementation Ticket](./first-implementation-ticket.md) | Individual | Review-ready Thu Oct 29 · merged Wed Nov 4 | Pass |
 | [Async Sprint: Focused Learning + Team Sync](./async-sprint.md) | Individual + team | Tue Oct 13 | Pass |
 | [Checkpoints 1–3](./checkpoints.md) | Individual | Oct 14 · Nov 5 · Dec 3 | Pass |
+| [Cross-Project Functions](./cross-project-functions.md) | Individual | standing, Oct 14 – Dec 10 | Distinction |
 | [Reading Presentation](./reading-presentation.md) | Pairs, one group of three | Oct 21 · Oct 28 · Dec 2 | Pass |
 | Game Day Postmortems *(handout to follow)* | Team | within 48h of each game day | Pass · Credit |
 | Feature Freeze *(handout to follow)* | Team | Mon Nov 23 | Distinction |

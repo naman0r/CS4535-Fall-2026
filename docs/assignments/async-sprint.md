@@ -29,7 +29,7 @@ Pick **one** objective in your team's area. The [spike menu](./async-sprint-menu
 - **What you'll be able to explain afterward** that you can't explain today
 - **The shape** of the work, from the table below
 
-Your team ratifies the set in class on Thu Oct 1.
+Your team ratifies the set in class on Thu Oct 1. If your charter feedback says section 8 isn't one objective per person, fix it by **Mon Oct 5**, alongside standup #1. Your artifact is checked against what section 8 says.
 
 | Shape | What you produce |
 |---|---|
@@ -64,8 +64,10 @@ A post that says "still working on it" doesn't meet the format. The test is whet
 
 Each team meets twice, for about 30 minutes, in person or on video:
 
-- **Meeting 1: Thu Oct 8, during our usual class time.** There's no class that day, so your team already has the time free.
-- **Meeting 2: any time from Fri Oct 9 to Mon Oct 12.** Put the time in your charter.
+- **Meeting 1: any time before meeting 2.** Thu Oct 8 during our usual class time is set aside for it, since there's no class that day, but you can hold it earlier.
+- **Meeting 2: any time from Fri Oct 9 to Tue Oct 13, before the artifacts are due that night.** This is where the team reviews what each person found, so it can't move earlier. Oct 10–12 is a holiday weekend, so Friday or Tuesday is usually easiest. Put both times in your charter.
+
+Meet more often if it helps. Only these two need summaries.
 
 At each meeting, each person says what they've learned so far and what's in their way. Then the team answers one question: **does anything we've learned change our plan?**
 
@@ -98,7 +100,7 @@ Oct 5, Oct 7 and Oct 8 are scheduled class sessions run asynchronously, and each
 |---|---|
 | Mon Oct 5 | Your standup #1 is posted by 10:30 ET |
 | Wed Oct 7 | Your activity post is in the thread by Fri Oct 9 |
-| Thu Oct 8 | You're named as present in your team's meeting 1 summary |
+| Thu Oct 8 | You're named as present in your team's meeting 1 summary, whenever meeting 1 was held |
 
 Absences cap your final letter grade regardless of which band you complete. See the [participation floor](/syllabus#participation). If something will stop you from posting or attending, tell us before the deadline. Excused absences don't count against the cap.
 
@@ -138,9 +140,11 @@ Spacing matters more than the count. A sprint done in one ten-hour Sunday shows 
 |---|---|
 | Objectives ratified, section 8 of the charter | Thu Oct 1, in class |
 | Standup #1, Discord post | Mon Oct 5, 10:30 ET |
+| Team response to charter feedback: section 8, both meetings booked | Mon Oct 5, 23:59 ET |
+| Revised charter committed | Tue Oct 13, 23:59 ET |
 | Wed Oct 7 activity posted | Wed Oct 7; your thread post by Fri Oct 9 |
-| Team meeting 1 + summary | Thu Oct 8, class time; summary within 24 hours |
-| Team meeting 2 + summary | Fri Oct 9 – Mon Oct 12; summary within 24 hours |
+| Team meeting 1 + summary | By Thu Oct 8 (class time set aside); summary within 24 hours |
+| Team meeting 2 + summary | Fri Oct 9 – Tue Oct 13; summary within 24 hours |
 | Sprint artifact committed | Tue Oct 13, 23:59 ET |
 | Team's first issues filed on the platform | Tue Oct 13, 23:59 ET |
 | [Checkpoint 1](./checkpoints.md) survey | Tue Oct 13, 23:59 ET |

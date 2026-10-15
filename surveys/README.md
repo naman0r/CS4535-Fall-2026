@@ -11,6 +11,7 @@ under version control alongside the handout that describes them.
 | `reading-bid.survey.json` | [Reading Presentation](../docs/assignments/reading-presentation.md#how-you-get-your-reading) | Wed Sep 9 | Thu Sep 24, 23:59 ET |
 | `band-declaration.survey.json` | [Declaring a target band](../src/pages/syllabus.md#declaring-a-target-band) | Mon Sep 28 | Thu Oct 1, 23:59 ET; resubmit through Thu Dec 3 |
 | `checkpoint-1.survey.json` | [Checkpoints](../docs/assignments/checkpoints.md) | Thu Oct 1 | Tue Oct 13, 23:59 ET |
+| `checkpoint-2.survey.json` | [Checkpoints](../docs/assignments/checkpoints.md) | Wed Oct 14 | Thu Nov 5, 23:59 ET |
 
 The first three were checked against `survey-core` 3.0.3: the JSON loads, every declared question type
 survives the round trip, all `visibleIf` and validator expressions parse, and the conditionals and
@@ -64,4 +65,8 @@ A declaration changes by resubmission through Thu Dec 3, so the platform has to 
 
 ## Checkpoint 1
 
-`checkpoint-1.survey.json` was checked against `survey-core` 3.0.3: it loads, the Credit questions appear only at Credit or above, the Distinction questions only at Distinction or above and only for the options chosen, the four-of-five rule is enforced, and the sprint-artifact field rejects anything that isn't a full link. It asks for the band again because a student may have changed it since Oct 1.
+`checkpoint-1.survey.json` was checked against `survey-core` 3.0.3: it loads, the four team ratings are each required, and the sprint-artifact field rejects anything that isn't a full link. The ratings are the CS 4530 weekly-collaboration items; a team where one person's ratings sit well below everyone else's gets a conversation. Band comes from the band declaration, and functions and code review come later in the term, so Checkpoint 1 doesn't ask about any of them. It asks for the band again because a student may have changed it since Oct 1.
+
+## Checkpoint 2
+
+`checkpoint-2.survey.json` was checked against `survey-core` 3.0.3: it loads as three pages (Pass requirements, Above Pass, Your team), the link fields reject anything that isn't a full link, the Credit questions appear only at Credit or above, and the Distinction questions only for the options chosen, with the four-of-five rule enforced. It asks for the band again only to decide which requirements to show. The team ratings repeat Checkpoint 1's four items, so the two can be compared per student.
