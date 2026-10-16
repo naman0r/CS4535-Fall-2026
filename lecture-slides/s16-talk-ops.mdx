@@ -1,6 +1,6 @@
 ---
 sidebar_position: 16
-title: "Tech Talk: Operations — IaC, Observability & Incident Response"
+title: "Tech Talk: Operations: Evidence, Signals & Blameless Postmortems"
 image: /img/lectures/s16-talk-ops.webp
 ---
 
@@ -17,39 +17,41 @@ import Img from '@site/src/components/Img';
 
   <Img
     src="/img/lectures/s16-talk-ops.webp"
-    prompt="Concept: 'What you declared, what is running, and how you would know they disagree.' 8-bit lo-fi pixel art, retro game aesthetic, clean outlines, 16:9 landscape. On the LEFT, a large teal blueprint of a small building is pinned to a drafting table, every window drawn and numbered. On the RIGHT, the real building stands in the same pose, drawn in warm amber tones, and one of its windows is bricked over where the blueprint shows glass. Between them, a small pixel engineer in a teal hoodie holds a clipboard in one hand and points a flashlight at the bricked window, frowning. Above the building, a small green status light on a pole glows steadily, as if nothing is wrong. Top banner reads 'S10: Operations'. A tagline below the banner reads 'Declared Is Not Running.' Bottom text reads 'CS 4535: Software Design and Delivery'."
-    alt="Pixel art of a blueprint on the left and the real building on the right. One window on the blueprint is bricked over on the building. An engineer shines a flashlight at the bricked window while a green status light above the building stays lit. Tagline: Declared Is Not Running."
+    prompt="Concept: 'Each fix moves the news closer to the person who can act on it, until no one has to be woken at all.' 8-bit lo-fi pixel art, retro game aesthetic, clean outlines, 16:9 landscape. A wide staircase descends from LEFT to RIGHT across the scene. At the top LEFT, in warm amber and red tones, a tired pixel operator in a dark room is woken at night by a ringing pager, squinting at a glowing screen. On the middle steps, a pixel student at a laptop reads a small friendly message bubble with a lightbulb above their head. At the bottom RIGHT, in calm teal and blue tones, a small pixel robot holds up a green checkmark at a gate, stopping a misaligned file before it goes anywhere, while the sun is up. Top banner reads 'S16: Operations'. A tagline below the banner reads 'Take the Person Out of the Loop.' Bottom text reads 'CS 4535: Software Design and Delivery'."
+    alt="Pixel art of a staircase descending left to right. At the top, an operator is woken at night by a pager. In the middle, a student reads a helpful message at a laptop. At the bottom, a robot with a green checkmark stops a bad file at a gate in daylight. Tagline: Take the Person Out of the Loop."
   />
 
 <aside className="notes">
-**Session:** Mon Oct 19 · Tech Talk: Operations: IaC, Observability & Incident Response · 65 min
+**Session:** Mon Oct 19 · Tech Talk: Operations: Evidence, Signals & Blameless Postmortems · 65 min
 
 **One spine: a real incident from this term, told from the report to the recovery.** On Tue Sep 29 the staff of another course on Pawtograder wrote in to say the platform was not recording most students' submissions. It was recording all of them, and rejecting almost all of them as "identical to the starter code" because of one config file nobody had edited. Every idea today hangs off that story, so the room never has to hold an abstraction without an example under it.
 
-**The thesis, in one sentence:** Whether you can answer "what happened?" is decided when you design the data and the deploy, not during the incident. The investigation was answered by rows the software kept on purpose and by a deploy config that pinned exactly what was running. The logs had expired, and a metric that showed the problem had no alert on it.
+**The thesis, in one sentence:** Whether you can answer "what happened?" is decided when you design the data and the deploy, not during the incident. The investigation was answered by rows the software kept on purpose and by a deploy config that pinned exactly what was running. The logs had expired. A metric did count the problem, but it counted the normal case in the same bucket, so no alert could be written against it.
 
 **The room is very mixed.** Some of them do provisioning at a co-op; some have never opened a terminal on a server. Every term gets a definition at first use, in a blue box labeled Definition, and the warm-up is built so that everyone can contribute without knowing any of the vocabulary.
 
-**Structure:**
-- Reminders and title (~3 min).
-- **Warm-up (~7 min, three slides).** A quick show of hands to calibrate the room, then the real report, pairs, and sorting their answers on the board. The board stays up for the rest of the session.
+**Structure: a 27-minute talk, then a 34-minute team working session.** The talk was cut from about 49 minutes after Demo Day 1 (Oct 15), because the teams need class time to work through their feedback and break their projects down. Today is also the deadline for agreeing first-ticket scopes on the issue, and this is the one class where you can sign off all of them in person.
+
+- Reminders and title (~2 min).
+- **Warm-up (~5 min, two slides).** The real report, pairs, and sorting their answers on the board. The board stays up for the talk.
 - Objectives (~1 min).
-- **Arc 1, What Actually Happened (~9 min, four slides).** The facts, the one-line cause, who answered each question, and what did not help.
-- **Arc 2, Infrastructure as Code and Drift (~8 min, four slides).** Definitions, the pinned image tag, the reconcile loop, and three kinds of drift, each from our own system.
-- **Arc 3, Observability (~15 min, four slides).** The four kinds of telemetry and what we have of each, the metric that existed, then the **team activity** on their own project and a short debrief.
-- **Arc 4, Incident Response (~5 min, two slides).** The loop, mapped onto the incident, then the alert that should have existed.
-- Up next (~1 min).
+- **Arc 1, What Actually Happened (~6 min, three slides).** The facts, the one-line cause, and who answered each question, with what didn't help said out loud.
+- **Arc 2, Configuration as Code (~2 min, one slide).** Why the fix was a reviewable commit, and why "which code was running?" had an exact answer.
+- **Arc 3, Observability (~5 min, two slides).** Where Pawtograder's evidence lives, then the metric that counted the failure and couldn't tell it from normal, and the fact that would have.
+- **Arc 4, The Postmortem (~6 min, one slide).** A blameless postmortem discussion: which action item takes a person out of the loop.
+- **Working session (~34 min, one slide that stays up).** Feedback triage, the breakdown to Nov 23, first-ticket sign-offs while you go round the tables, and a post in each team's channel.
+- Close (~3 min). Game Day 1 is Thursday.
 
-**That is about 49 of 65.** The ratify-and-declare block that used to close this session moved to Oct 1 when the talk moved here, so the team activity and its debrief can have the slack.
+**Why it's on Oct 19.** It moved from Oct 1 so it lands three days before Game Day 1 (Thu Oct 22), after teams have spent three weeks in their areas and have code to point at. There is no separate standup today: each team's post at the end of the working session does that job.
 
-**Why it's on Oct 19.** It moved from Oct 1 so it lands three days before Game Day 1 (Thu Oct 22), after teams have spent three weeks in their areas and have code to point at. Today's standup is a Discord post by 10:30 instead of in the room.
-
-**If you run long, cut in this order:** the "Which Code Was Running?" slide (say it in one sentence during the IaC definition), then the debrief (take two teams, not four), then shorten Arc 4 to the alert slide. Never cut the warm-up or the team activity.
+**If the talk runs long, cut in this order:** the tool names on the configuration-as-code slide, then "One File Nobody Edited" (say the cause in one sentence), then the Grafana demo on "The Number Was Already There". **Never cut the postmortem discussion or the working session.** Start the working session by minute 28.
 
 **Anonymization.** No student names, no repository names, no course number on the slides. Say "another course on Pawtograder" and "a student". The two students whose rows had been activated by hand stay anonymous too.
 
 **Before class:**
-- Whiteboard: leave a wide space for the warm-up columns. They stay up all session.
+- Whiteboard: leave a wide space for the warm-up columns. They stay up for the talk.
+- Bring each team's Demo Day 1 worksheet pile, or have the photos ready to share in their channel if the piles went home with the teams.
+- Pull up the list of first-ticket issues so far, so you know who arrives without one.
 - Open Grafana (Explore, Prometheus data source) in a tab if you want to show the metric live in Arc 3. The slide works without it.
 
 > **Transition:** Reminders first, then a warm-up.
@@ -67,15 +69,16 @@ import Img from '@site/src/components/Img';
 
 <div style={{fontSize: '0.8em', textAlign: 'left'}}>
 
-- **STANDUP:** today's is a Discord post by 10:30, not in the room
-- **WEDNESDAY:** Student Presentations 1, pre-reads posted today
-- **THURSDAY:** Game Day 1: Runner Drift, announced in advance
-- **DUE:** First Implementation Ticket, Thu Oct 29
+- **TODAY:** first-ticket scope agreed on the issue, before you leave
+- **TODAY:** no standup post. Your team's working-session post replaces it
+- **WEDNESDAY:** Reading Presentations 1, pre-reads posted today
+- **THURSDAY:** Game Day 1: The Queue Nobody Drains, announced in advance
+- **THU OCT 29:** first ticket review-ready, demoed at Demo Day 2
 
 </div>
 
 <aside className="notes">
-Keep this to 60 seconds. Deadlines only. The game day on Thursday is the reason this talk is today, so say that once.
+Keep this to 60 seconds. Deadlines only. Say the shape of the day once: a short talk, then most of class working in teams. The game day on Thursday is the reason this talk is today.
 
 > **Transition:** Now, today.
 </aside>
@@ -90,7 +93,7 @@ Keep this to 60 seconds. Deadlines only. The game day on Thursday is the reason 
 
 # CS 4535: Software Design & Delivery
 
-## Tech Talk: Operations: IaC, Observability & Incident Response
+## Tech Talk: Operations: Evidence, Signals & Blameless Postmortems
 
 <p style={{marginTop: '2em', fontSize: '0.8em', color: '#666'}}>
   &copy;2026 Jonathan Bell, CC-BY-SA
@@ -101,63 +104,16 @@ Keep this to 60 seconds. Deadlines only. The game day on Thursday is the reason 
 
 **What it unblocks.** Game Day 1 is Thursday, and the Game Days after it inject faults into their own demo classes. After today they know the words for what they'll be doing in those rooms, where Pawtograder's evidence lives, and what their own project will need in order to be observable.
 
-> **Transition:** Before any definitions, a quick look at who's in the room.
+> **Transition:** Before any definitions, here's an email that arrived on Tue Sep 29.
 </aside>
 
 </Slide>
 
 {/* ============================================ */}
-{/* WARM-UP (~7 min)                             */}
-{/* Calibrate the room, then the real report,    */}
-{/* pairs, and sort the answers on the board.    */}
+{/* WARM-UP (~5 min)                             */}
+{/* The real report, pairs, and sort the answers */}
+{/* on the board.                                */}
 {/* ============================================ */}
-
-<Slide>
-
-## Hands Up If You've Ever...
-
-<div style={{fontSize: '0.62em', textAlign: 'left', marginTop: '0.5em'}}>
-
-<div style={{backgroundColor: 'rgba(100,150,255,0.12)', padding: '0.45em', borderRadius: '8px', marginBottom: '0.35em'}}>
-
-...shipped something that **other people used**, and found out later it was broken
-
-</div>
-
-<div style={{backgroundColor: 'rgba(100,150,255,0.12)', padding: '0.45em', borderRadius: '8px', marginBottom: '0.35em'}}>
-
-...found out it was broken **from a user** before you found out any other way
-
-</div>
-
-<div style={{backgroundColor: 'rgba(100,150,255,0.12)', padding: '0.45em', borderRadius: '8px', marginBottom: '0.35em'}}>
-
-...written a **file that created a server** or a container: a Dockerfile, `docker-compose.yml`, Terraform, a Helm chart
-
-</div>
-
-<div style={{backgroundColor: 'rgba(100,150,255,0.12)', padding: '0.45em', borderRadius: '8px'}}>
-
-...searched **logs** or a **dashboard** to figure out why something happened
-
-</div>
-
-</div>
-
-<aside className="notes">
-**Ninety seconds, four hands-ups, one at a time.** Read each line, pause, count out loud. This is for you as much as for them: it tells you how much of the vocabulary is new to how much of the room, so you can adjust the definition slides on the fly.
-
-**Expect lots of hands on the first two and few on the last two.** Say that out loud, because it is the point: almost everyone has been on the receiving end of a production failure, and far fewer have been on the side that finds and fixes one. Today is about that side.
-
-**Call out the second item.** Finding out from a user is the most common way software teams learn about failures, and the worst. Hold that thought; the next slide is exactly that.
-
-**Anyone with a hand up on items 3 or 4 is a resource for their team in the activity.** Say so. In a mixed room, the students with ops experience should feel useful rather than bored.
-
-> **Transition:** Here's an email that arrived on Tuesday.
-</aside>
-
-</Slide>
-
 
 <Slide>
 
@@ -173,14 +129,14 @@ Keep this to 60 seconds. Deadlines only. The game day on Thursday is the reason 
 
 <div style={{fontSize: '0.56em', textAlign: 'left', marginTop: '0.6em'}}>
 
-**3 minutes, with the person next to you.** You're on call. Write down the **first three things you'd check**, and for each one, **where the answer lives**.
+**2 minutes, with the person next to you.** You're on call. Write down the **first three things you'd check**, and for each one, **where the answer lives**.
 
 </div>
 
 <aside className="notes">
 **This is real, from Sep 29, lightly edited to remove names.** Say that. The room is more engaged by a real incident on the system they work on than by any textbook case.
 
-**Read it out loud, slowly, then start the clock.** No vocabulary needed. Anybody can answer "what would you check first."
+**Read it out loud, slowly, then start the clock.** No vocabulary needed. Anybody can answer "what would you check first." The room is mixed: some do provisioning at a co-op, some have never opened a terminal on a server. The students with ops experience are a resource for their pair, so say so.
 
 **Circulate and listen for the "where."** Most pairs will write things such as "check if the webhook fired", "look at the database", "check the logs", "ask the student", "check GitHub", "see if there was a deploy." The second half, where the answer lives, is what makes the debrief work, so nudge pairs who only wrote the check: "and where would you look to find that out?"
 
@@ -212,13 +168,13 @@ Keep this board. We'll come back and see which columns actually answered it.
 </p>
 
 <aside className="notes">
-**Draw these six columns on the whiteboard, not just on the slide,** and write each pair's answers into a column as they call them out. Take one answer per pair, then open it up. About three minutes.
+**Draw these six columns on the whiteboard, not just on the slide,** and write each pair's answers into a column as they call them out. Take one answer per pair, then open it up. About two minutes.
 
 **Some answers will not fit, and that's useful.** "Check whether there was a deploy" goes under code and config. "Check if the webhook fired" is interesting because it could live in three columns: logs, the database, or GitHub's own delivery history. Point that out; it foreshadows the investigation.
 
 **Count the columns before moving on.** Usually logs and the database get the most answers and dashboards get a few. Say what the room predicted. In Arc 1 you'll reveal that logs contributed nothing and the database answered almost everything, and that contrast lands harder if the room committed to a prediction.
 
-**Leave the board up.** It comes back in "Who Answered Each Question?" and again in the incident loop.
+**Leave the board up.** It comes back in "Who Answered Each Question?" and in the postmortem.
 
 > **Transition:** Here's what you'll be able to do after today.
 </aside>
@@ -238,19 +194,21 @@ After this session, you'll be able to:
 </p>
 
 <ol style={{fontSize: '0.72em', textAlign: 'left'}}>
-  <li>Define infrastructure as code, and say what it lets you answer about a running system</li>
-  <li>Recognize three kinds of configuration drift, in Pawtograder and in your own project</li>
-  <li>Say what errors, logs, metrics and traces each answer, and which of them Pawtograder actually has</li>
-  <li>Name the question your project will be asked in production, and the signal that would answer it</li>
-  <li>Walk an incident from detection to postmortem, and write an alert that would have caught a real one</li>
+  <li>Explain why "what happened?" could be answered from what Pawtograder recorded and declared, and say where its evidence lives and what was already gone</li>
+  <li>Say what tells a failure apart from normal behavior, and why the software should record it at the moment it knows</li>
+  <li>Write a blameless postmortem action item, and say who has to be awake for it to work</li>
 </ol>
 
 <aside className="notes">
-**Five, and they follow the arcs in order.** 1 and 2 are Arc 2, 3 and 4 are Arc 3 (4 is the team activity), 5 is Arc 4. Arc 1 is the story everything else hangs on, so it has no objective of its own.
+**Three, cut from five after Demo Day 1, because the talk is now about 27 minutes.** 1 is Arc 1, the configuration-as-code slide and the evidence table. 2 is "The Number Was Already There". 3 is the postmortem discussion that closes the talk, and the working session applies it to their own tickets. 2 and 3 matter most.
 
-**Loki is not on the list, on purpose.** Pawtograder has no log aggregation in production today, and the lesson is better told as "the logs were gone" than as a tour of a tool nobody can open. The old objective about what belongs in a Sentry context is folded into the team activity: "where does the answer live" is that question, asked about their own feature.
+**What moved out.** The incident loop belongs to Game Day 1 on Thursday, which runs it live, so today only says "mitigate before you recover" in passing, on "One File Nobody Edited". Drift is gone: nothing in this incident drifted, and Thursday's fault isn't drift either. The four-signal table stays as a map of where to look.
 
-**Time.** Warm-up 7, objectives 1, Arc 1 nine, Arc 2 eight, Arc 3 fifteen, Arc 4 five, protected ten. About 59 of 65.
+**Don't preview Thursday.** Leave queues and scheduled jobs out of today. Thursday teaches objective 3 again with a different signal, and it lands better if they get there themselves.
+
+**Loki isn't on the slides, on purpose.** Pawtograder has no log aggregation in production today, and the lesson is better told as "the logs were gone" than as a tour of a tool nobody can open. The old objective about what belongs in a Sentry context is folded into the working session: "where does the answer live" is that question, asked about their own tickets.
+
+**Time.** Reminders 2, warm-up 5, objectives 1, Arc 1 six, Arc 2 two, Arc 3 five, Arc 4 six: about 27. The working session starts by minute 28 and runs about 34.
 
 > **Transition:** So what actually happened?
 </aside>
@@ -258,9 +216,9 @@ After this session, you'll be able to:
 </Slide>
 
 {/* ============================================ */}
-{/* ARC 1: WHAT ACTUALLY HAPPENED (~9 min)       */}
-{/* The facts, the cause, who answered each      */}
-{/* question, and what didn't help.              */}
+{/* ARC 1: WHAT ACTUALLY HAPPENED (~6 min)       */}
+{/* The facts, the cause, and who answered each  */}
+{/* question.                                    */}
 {/* ============================================ */}
 
 <Slide>
@@ -342,9 +300,9 @@ Any push that didn't touch a Markdown file looked identical. The one student who
 
 **Explain the check in plain terms for the mixed room.** For an assignment that doesn't allow empty submissions, Pawtograder hashes the student's files and compares the result with a hash of the starter code. It only looks at the files the patterns select, so that a changed lockfile or a stray build output doesn't count as work. If the patterns select the wrong files, the comparison is between two things that were never going to differ.
 
-**Whose fault is it?** Nobody's, and say that. The template default was reasonable for the Java and Python courses it was written for, the staff had turned the autograder off and had no reason to open the file, and the platform did exactly what the config said. It's a systems failure: a default that is safe in one context and silently wrong in another, with no signal when it goes wrong. That framing is what a blameless postmortem looks like, and Arc 4 names it.
+**Whose fault is it?** Nobody's, and say that. The template default was reasonable for the Java and Python courses it was written for, the staff had turned the autograder off and had no reason to open the file, and the platform did exactly what the config said. It's a systems failure: a default that is safe in one context and silently wrong in another, with no signal when it goes wrong. That framing is what a blameless postmortem looks like, and Thursday's postmortems use it.
 
-**The fix was one commit to this file.** New pushes were accepted within a minute. The rejected ones were not, and recovering them comes up in Arc 4.
+**The fix was one commit to this file.** New pushes were accepted within a minute. The 40 already rejected stayed rejected, and restoring them took a reviewed script, run as a dry run first, then on one repository, then on the rest. Say the rule in one line, because Thursday needs it: **mitigate before you recover.** Stop new harm first, then repair what's already broken.
 
 > **Transition:** Let's go back to your board. Which of your columns answered this?
 </aside>
@@ -383,58 +341,23 @@ Almost every answer was in the database, because someone designed it to be there
 
 **This is the thesis; say it plainly.** Whether you can answer "what happened?" was decided long before Tuesday, by people choosing to keep a rejected row, record an error type, keep an audit trail, and pin an image tag. None of those were built for this incident.
 
-> **Transition:** And here's what didn't help.
-</aside>
-
-</Slide>
-
-
-<Slide>
-
-## What Didn't Help
-
-<div style={{fontSize: '0.56em', textAlign: 'left', marginTop: '0.4em'}}>
-
-<div style={{backgroundColor: 'rgba(231,111,81,0.15)', padding: '0.5em', borderRadius: '8px', marginBottom: '0.4em'}}>
-
-**Logs.** Pawtograder keeps a pod's logs for about **two hours**. The first rejection was **six days** earlier.
-
-</div>
-
-<div className="fragment" style={{backgroundColor: 'rgba(231,111,81,0.15)', padding: '0.5em', borderRadius: '8px', marginBottom: '0.4em'}}>
-
-**Alerts.** Production has **37** alert rules. None of them are about rejected submissions.
-
-</div>
-
-<div className="fragment" style={{backgroundColor: 'rgba(231,111,81,0.15)', padding: '0.5em', borderRadius: '8px'}}>
-
-**Detection.** The first thing that noticed was **a person, six days in**, writing an email.
-
-</div>
-
-</div>
-
-<aside className="notes">
-**Each of these is a decision, not bad luck.** Logs are kept briefly because nobody has set up somewhere to send them yet. Alerts cover what someone thought to write an alert for, and so far that's mostly infrastructure: the database, queues, memory, backups. Detection by a user is what's left when the first two don't cover a failure.
-
-**Six days matters in human terms.** A student who pushed on day one and saw "not submitted" for six days was probably worried, pushed again, or emailed a TA. Every day between the failure and the detection costs somebody something.
-
-**Hold the alert line.** In Arc 3 you'll show that the number that would have caught this was already being collected. That's the pivot of the session.
+**Then say what didn't help, in three sentences.** Logs: Pawtograder keeps a pod's logs for about two hours, and the first rejection was six days earlier. Alerts: production has 37 rules, and none is about rejected submissions. Detection: the first thing that noticed was a person, six days in, writing an email. Someone decided each of those, and Arc 3 comes back to the alert.
 
 > **Transition:** Two of the answers came from how Pawtograder's infrastructure is written down. Let's define that.
 </aside>
 
 </Slide>
 
+
 {/* ============================================ */}
-{/* ARC 2: INFRASTRUCTURE AS CODE & DRIFT        */}
-{/* (~8 min) Objectives 1 and 2.                 */}
+{/* ARC 2: CONFIGURATION AS CODE (~2 min)        */}
+{/* Part of objective 1: why "what's running?"   */}
+{/* had an answer, and why the fix was a commit. */}
 {/* ============================================ */}
 
 <Slide>
 
-## Infrastructure as Code
+## Why the Fix Was a Commit
 
 <div style={{backgroundColor: 'rgba(100,150,255,0.14)', padding: '0.55em', borderRadius: '8px', fontSize: '0.56em', textAlign: 'left', marginTop: '0.3em'}}>
 
@@ -467,169 +390,31 @@ Almost every answer was in the database, because someone designed it to be there
 </div>
 
 <aside className="notes">
-**Take this slowly; it's the first new term for half the room.** The contrast is the useful part: the alternative to IaC is a person logging into a server or a web console and changing a setting by hand. That works, once, and then nobody can tell what was changed, when, or why, and nobody can build a second copy.
+**One slide, about two minutes. It's the first new term for half the room.** The contrast is the useful part: the alternative to IaC is a person logging into a server or a web console and changing a setting by hand. That works, once, and then nobody can tell what was changed, when, or why, and nobody can build a second copy.
 
-**Name the tools only as examples.** Terraform, Pulumi and CloudFormation describe cloud resources. Helm and Kubernetes manifests describe what runs in a cluster. Ansible describes the configuration of machines. The Workspaces team will meet several of these in their own namespace this month.
+**Name the tools only as examples, in one breath.** Terraform describes cloud resources, Helm and Kubernetes manifests describe what runs in a cluster. The Workspaces team will meet several of these in their own namespace this month.
 
 **Configuration as code is the same idea one level up.** The file from Arc 1 is configuration as code: the grader settings for an assignment live in a git repository, and a webhook copies them into the database when you push. The fix for the incident was a commit, which means it was reviewable and it's in the history.
 
-**The third "buys" is today's point.** In the investigation, "which version of the code was running?" had an exact answer because of this. Next slide.
+**The first and third "buys" are today's point.** Review: the fix was one commit, reviewable and in the history. Answer, in one sentence: `values-prod.yaml` pins the edge functions to the image tag `main-20260927-38db5c7b`, and `38db5c7b` is a commit, so I could read the exact code that rejected those pushes. Today's `main` might have a fix that wasn't deployed yet. The alternative is `tag: latest`, and then nobody can say which code is running. Sentry tags every error with the commit for the same reason (s06).
 
-> **Transition:** Here's what that answer looked like.
+**Say plainly that the files were right about what was running.** Production ran exactly what they said. The webhook copied `pawtograder.yml` faithfully, and the pinned tag matched the deploy. The failure was a correct declaration of the wrong thing, which is why writing it down wasn't enough: nothing checked whether what was declared made sense for this course. Hold that for the postmortem.
+
+> **Transition:** The files told us what was running. Here's where the rest of the evidence lives.
 </aside>
 
 </Slide>
 
-
-<Slide>
-
-## Which Code Was Running?
-
-<div style={{fontSize: '0.56em', textAlign: 'left', marginTop: '0.3em'}}>
-
-From `values-prod.yaml`, the file that describes production:
-
-</div>
-
-```yaml
-edgeFunctions:
-  image:
-    tag: "main-20260927-38db5c7b"
-```
-
-<div style={{fontSize: '0.54em', textAlign: 'left', marginTop: '0.4em'}}>
-
-`38db5c7b` is a **commit**. I read the exact code that rejected those pushes, not the code on `main` today.
-
-</div>
-
-<div className="fragment" style={{backgroundColor: 'rgba(231,111,81,0.15)', padding: '0.5em', borderRadius: '8px', fontSize: '0.54em', textAlign: 'left', marginTop: '0.4em'}}>
-
-The alternative is `tag: latest`, which means "whatever was newest when this pod last started." Then nobody can say which code is running.
-
-</div>
-
-<aside className="notes">
-**One minute.** The point is small and concrete: a pinned version turns "what's running?" from a guess into a lookup.
-
-**Say why `main` today would have been wrong.** Code changes daily. If I had read today's version of the webhook, I might have found a fix that wasn't deployed, or a bug that wasn't there yet. The tag let me read the exact file that ran when those pushes arrived.
-
-**Tie back to s06 in one line.** Sentry tags every error with the release, the commit SHA, for the same reason.
-
-**Cut this slide first if you're over time.** Say "the deploy file names the exact commit that's running" during the IaC definition and skip to the reconcile loop.
-
-> **Transition:** Writing it down is half. The other half is keeping reality in line with what you wrote.
-</aside>
-
-</Slide>
-
-
-<Slide>
-
-## Declared vs. Running
-
-<div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5em', fontSize: '0.52em', marginTop: '0.5em'}}>
-
-<div style={{backgroundColor: 'rgba(100,150,255,0.14)', padding: '0.6em', borderRadius: '8px', width: '28%'}}>
-
-**Declared**
-
-Files in git: what you said should run
-
-</div>
-
-<div style={{fontSize: '1.6em'}}>→</div>
-
-<div style={{backgroundColor: 'rgba(120,120,120,0.12)', padding: '0.6em', borderRadius: '8px', width: '28%'}}>
-
-**Reconciler**
-
-A deploy, a Kubernetes controller, our webhook
-
-</div>
-
-<div style={{fontSize: '1.6em'}}>→</div>
-
-<div style={{backgroundColor: 'rgba(42,157,143,0.12)', padding: '0.6em', borderRadius: '8px', width: '28%'}}>
-
-**Running**
-
-What's actually there
-
-</div>
-
-</div>
-
-<div style={{backgroundColor: 'rgba(100,150,255,0.14)', padding: '0.55em', borderRadius: '8px', fontSize: '0.54em', textAlign: 'left', marginTop: '0.7em'}}>
-
-**Definition.** **Configuration drift** is any difference between what's declared and what's running, or between two places that are supposed to say the same thing.
-
-</div>
-
-<aside className="notes">
-**Draw this on the board next to the warm-up columns if you have room.** Three boxes, two arrows. It's the whole mental model of IaC.
-
-**The reconciler is the part people forget.** A file on its own does nothing. Something has to read it and change the world to match: `helm upgrade` in a deploy, a Kubernetes controller that starts a new pod because the file says there should be three, or, in the incident, the webhook that copies `pawtograder.yml` into the database on every push. Kubernetes is built out of loops like this one, which is why a pod you delete by hand comes back.
-
-**Drift is what happens when the loop doesn't close.** Someone changes the running system without changing the file, or the loop updates only part of what depends on the file, or the same fact is written in two places and only one gets updated.
-
-> **Transition:** Three kinds, all from our own system.
-</aside>
-
-</Slide>
-
-
-<Slide>
-
-## Three Kinds of Drift
-
-<div style={{fontSize: '0.5em', textAlign: 'left', marginTop: '0.3em'}}>
-
-<div className="fragment" style={{backgroundColor: 'rgba(255,180,0,0.15)', padding: '0.5em', borderRadius: '8px', marginBottom: '0.4em'}}>
-
-**Undeclared.** Something runs that no reconciler owns. The database access I used on Tuesday is a permission **an operator applied by hand**. It's written in a file, but no deploy applies it, and the cluster's management tool may quietly remove it.
-
-</div>
-
-<div className="fragment" style={{backgroundColor: 'rgba(255,180,0,0.15)', padding: '0.5em', borderRadius: '8px', marginBottom: '0.4em'}}>
-
-**Duplicated.** The same fact lives in two places. Who may do what is checked in the **UI** (about 62 files) and again in **database policies** (about 1,300 calls). They've drifted apart: the UI lets you start things the database refuses.
-
-</div>
-
-<div className="fragment" style={{backgroundColor: 'rgba(255,180,0,0.15)', padding: '0.5em', borderRadius: '8px'}}>
-
-**Stale.** Something derived from the declaration wasn't recomputed. After the config fix, Pawtograder re-hashed the **current** starter code, but not the older versions a student may have started from.
-
-</div>
-
-</div>
-
-<aside className="notes">
-**Reveal one at a time, about a minute each.**
-
-**Undeclared.** This one is honest about our own shortcuts. To investigate, I needed to read the production database. That permission is a Kubernetes Role that an operator applied once, by hand. The file is in a repository, but no deploy applies it, and the file's own comment warns that Rancher, which manages the cluster, may reconcile it away. The day it disappears, the next investigation starts with a permissions ticket.
-
-**Duplicated.** This is the Usability, Accessibility & Permissions team's project, and they should recognize it. The Ticket Hunt turned up the pattern in #983, #996 and #1010: the UI offers an action, you take it, and the backend refuses. That's two copies of the same rule that no longer agree. Ask: which copy is the truth? The database policy, because it's the one that is enforced. Paper Exams has a smaller version of the same thing: the region math exists once in the app and once in a Deno copy that has to be kept in sync by hand.
-
-**Stale.** This came up in code review of the recovery script, the day after the incident. The config fix reseeded the starter-code hash for the latest version of the handout, but not for earlier versions. A student who started from an earlier version and changed nothing would then have looked like they did real work. It affected nobody this time, and the recovery script now recomputes all of them.
-
-**The general lesson:** a declaration is only as good as the loop that enforces it, and the loop only covers what someone thought to include.
-
-> **Transition:** Drift is how the running system gets away from what you wrote. Observability is how you'd notice.
-</aside>
-
-</Slide>
 
 {/* ============================================ */}
-{/* ARC 3: OBSERVABILITY (~15 min)               */}
-{/* Objectives 3 and 4. Four signals, the metric */}
-{/* that existed, then the team activity.        */}
+{/* ARC 3: OBSERVABILITY (~5 min)                */}
+{/* Objective 3. Four signals, then the metric   */}
+{/* that existed.                                */}
 {/* ============================================ */}
 
 <Slide>
 
-## Four Kinds of Telemetry
+## Where the Evidence Lives
 
 <div style={{backgroundColor: 'rgba(100,150,255,0.14)', padding: '0.5em', borderRadius: '8px', fontSize: '0.52em', textAlign: 'left', marginTop: '0.2em'}}>
 
@@ -665,6 +450,8 @@ What's actually there
 
 **Mention the database as a fifth source without adding a row.** Arc 1 showed most answers came from rows the software kept on purpose. That's telemetry too, in the widest sense, and it's the kind students will design into their own projects.
 
+**Treat the table as a map for Thursday.** The column they need is the right one: where Pawtograder keeps each kind of evidence, and the one that's already gone after two hours. The Grafana and Sentry here are production's. Don't say anything about staging's monitoring; Thursday covers it.
+
 > **Transition:** Here's the metrics row, applied to Tuesday.
 </aside>
 
@@ -685,214 +472,201 @@ Pawtograder already publishes this metric, every minute, per course:
 web_workflow_errors_recent{class_id="…", category="empty_submission", window="1h"}
 ```
 
-<div style={{fontSize: '0.54em', textAlign: 'left', marginTop: '0.4em'}}>
+<div style={{fontSize: '0.5em', textAlign: 'left', marginTop: '0.3em'}}>
 
 For **six days** it counted one course's pushes being rejected as empty. Of the 37 alert rules, **none** looks at it.
 
 </div>
 
-<p className="fragment" style={{fontSize: '0.58em', marginTop: '0.5em', fontWeight: 'bold', color: '#e76f51'}}>
-Collecting a number is not the same as asking it a question.
+<div className="fragment" style={{backgroundColor: 'rgba(255,180,0,0.15)', padding: '0.4em', borderRadius: '8px', fontSize: '0.48em', textAlign: 'left', marginTop: '0.3em'}}>
+
+It also counts **every new repository's first push**. That push is the starter code, and rejecting it is correct. **A misconfigured course and a normal Monday look the same in this number.**
+
+</div>
+
+<div className="fragment" style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.4em', fontSize: '0.46em', textAlign: 'left', marginTop: '0.35em'}}>
+
+<div style={{backgroundColor: 'rgba(42,157,143,0.12)', padding: '0.4em', borderRadius: '8px'}}>
+
+**Normal.** The commit changes **nothing** compared with the starter code.
+
+</div>
+
+<div style={{backgroundColor: 'rgba(231,111,81,0.15)', padding: '0.4em', borderRadius: '8px'}}>
+
+**Misconfigured.** The commit **changes files**, and **none of them** match `submissionFiles`.
+
+</div>
+
+</div>
+
+<p className="fragment" style={{fontSize: '0.54em', marginTop: '0.4em', fontWeight: 'bold', color: '#e76f51'}}>
+The software knew the difference at the moment it rejected the push.
 </p>
 
 <aside className="notes">
-**This is the pivot of the session.** The room just learned that metrics exist and alerts exist. Here they are, both present, and not connected.
+**This is the pivot of the session.** The room just learned that metrics exist and alerts exist. Here they are, both present, and not connected. The obvious reading is that someone forgot to write the alert. The real problem is that nobody could have written a good one.
 
-**If you have Grafana open, show it.** Explore, Prometheus, paste the metric name, filter to `category="empty_submission"`, and set the range to the last seven days. A real line is more persuasive than any slide. Check it before class: it is a one-hour window, so it shows bursts rather than a steady climb. If you don't have it open, the slide is enough.
+**If you have Grafana open and the clock allows, show it.** Explore, Prometheus, paste the metric name, filter to `category="empty_submission"`, and set the range to the last seven days. A real line is more persuasive than any slide. Check it before class: it is a one-hour window, so it shows bursts rather than a steady climb. If you don't have it open, the slide is enough.
 
 **Explain the name for the mixed room.** Everything in the braces is a label: which course, what kind of error, over what window. One metric name, many time series, one per combination of labels. That's what lets one alert rule cover every course.
 
-**Why wasn't there an alert?** Because an empty submission is usually normal: a student pushes before starting, sees the message, and pushes again. A rejection on its own isn't a problem. **Forty-three of 44 student pushes in one course** is. The alert isn't "any rejection"; it's "one course's rejections are far outside normal." They'll write it in Arc 4.
+**Why wasn't there an alert?** Because `empty_submission` is mostly normal. Creating a student's repository from the template triggers a push of the untouched starter code, and that is rejected as empty, correctly, for every student in every course. Students who push before starting add more. So the count jumps every time an assignment is released, and a course with 200 students produces 200 rejections on day one without anything being wrong. The misconfigured course produced 43 over six days. Any threshold low enough to catch that pages someone at every release, and gets muted within a week.
 
-> **Transition:** Now your project. In November, someone will send your team an email like Tuesday's.
+**Then reveal the two boxes, without asking the room.** Say what tells them apart: the webhook already has both facts in hand when it rejects a push, the files the commit changed and the files the patterns selected. The first push from the template changes nothing. The misconfigured course's pushes changed TypeScript files the patterns never looked at. Recording those as a separate category is one branch in the webhook.
+
+**Say the general lesson, then the last line.** A metric can only answer questions its labels can tell apart, and here the failure and the normal case share one. Recording the distinction at the moment the software knows it is the same move as keeping the rejected row in Arc 1. Who it should be told to is the postmortem's question.
+
+> **Transition:** Detection is the step that failed on Sep 29. So, the postmortem: what do we change?
 </aside>
 
 </Slide>
 
 
-<Slide>
-
-## What Will You Be Asked in November?
-
-<div style={{backgroundColor: 'rgba(231,111,81,0.15)', padding: '0.5em', borderRadius: '8px', fontSize: '0.5em', textAlign: 'left', marginTop: '0.2em'}}>
-
-**8 minutes, as a team.** Write four lines in your team's channel:
-
-1. **The email.** A user's report about your feature, in their words.
-2. **The question.** What you'd need to know to answer it.
-3. **Where the answer lives.** A row, a metric, an error, a log line. **Does it exist today?**
-4. **The alert.** What would have told you before the email did?
-
-</div>
-
-<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.35em', fontSize: '0.42em', textAlign: 'left', marginTop: '0.45em'}}>
-
-<div style={{backgroundColor: 'rgba(100,150,255,0.12)', padding: '0.4em', borderRadius: '8px'}}>
-
-**Paper Exams.** *"We uploaded 300 scans and some students have no exam."*
-
-</div>
-
-<div style={{backgroundColor: 'rgba(100,150,255,0.12)', padding: '0.4em', borderRadius: '8px'}}>
-
-**Cloud Workspaces.** *"I clicked Open and it just spins."*
-
-</div>
-
-<div style={{backgroundColor: 'rgba(100,150,255,0.12)', padding: '0.4em', borderRadius: '8px'}}>
-
-**Office Hours.** *"The queue says I'm 3rd. I've been 3rd for 40 minutes."*
-
-</div>
-
-<div style={{backgroundColor: 'rgba(100,150,255,0.12)', padding: '0.4em', borderRadius: '8px'}}>
-
-**Usability & Permissions.** *"It let me click it, and then it said no."*
-
-</div>
-
-</div>
-
-<aside className="notes">
-**Teams sit together for this.** The prompts are a starting point; a team that writes a better email of its own should use it.
-
-**Line 3 is where the thinking happens.** Most teams will first write "we'd check the logs." Push back with Tuesday's lesson: the logs are gone in two hours. Where does it live that you'd still have in a week? Often the honest answer is "nowhere yet", and that's a good outcome: it's a design decision they can make this month, while the feature is still on paper.
-
-**What to listen for, per team. Don't hand these out; use them to nudge.**
-- **Paper Exams.** The pipeline is asynchronous: upload, rasterize, OCR, match to the roster, grade. The email is about the match step. Signals: scans not matched to a student, per exam (a row they can count); the age of the oldest unprocessed batch in the queue (Pawtograder already alerts on queue age for other queues, `PawtograderQueueOldestMessageAging`); LLM provider errors and rate limits once they add bring-your-own-key grading. And one that is a correctness signal rather than a failure signal: how often a human overrides the LLM's suggested score. A sudden change means the model or the prompt changed underneath them.
-- **Cloud Workspaces.** This is the IaC team: they own a namespace and will declare Forgejo and Coder in files. The email is about "ready." Issue #981 is already a status that says ready before the repo is usable, which is drift between a declared status and the running state. Signals: time from click to a usable workspace; a synthetic readiness probe (a robot that opens a workspace every few minutes and reports whether it worked); and, straight out of Tuesday, Forgejo webhook deliveries compared with the submissions they should produce.
-- **Office Hours.** The email is about stale client state: the browser's copy of the queue stopped updating. Signals: realtime connections and reconnects per course (Pawtograder already alerts on realtime connection limits); the delay between a status change in the database and the client seeing it; time from raised hand to helped, as a distribution. That last one is the baseline the team already planned to measure, and it doubles as a product metric.
-- **Usability & Permissions.** The email is the duplicated drift from Arc 2. Signals: permission denials from the database, counted by page and by role, are a live map of where the UI and the policies disagree. Accessibility has its own telemetry in CI: axe violations over time. And abandoned flows (started, never finished) are row E from s07.
-
-**Stop at 8 minutes even if they're mid-sentence.** The debrief is short on purpose.
-
-> **Transition:** One line from each team: your email, and where the answer lives.
-</aside>
-
-</Slide>
-
+{/* ============================================ */}
+{/* ARC 4: THE POSTMORTEM (~6 min)               */}
+{/* Objective 3. A blameless postmortem, and     */}
+{/* which action item takes a person out.        */}
+{/* ============================================ */}
 
 <Slide>
 
-## Debrief: Does It Exist Today?
+## Blameless Postmortem: What Changes?
 
-<div style={{fontSize: '0.46em', textAlign: 'left', marginTop: '0.3em'}}>
+<div style={{backgroundColor: 'rgba(100,150,255,0.14)', padding: '0.45em', borderRadius: '8px', fontSize: '0.48em', textAlign: 'left', marginTop: '0.2em'}}>
 
-| | Paper Exams | Cloud Workspaces | Office Hours | Usability & Permissions |
-|---|---|---|---|---|
-| **The question** | | | | |
-| **Where it lives** | | | | |
-| **Exists today?** | | | | |
-| **The alert** | | | | |
+**Definition.** A **blameless postmortem** assumes everyone acted reasonably on what they knew, and asks what in the system let the failure happen. Its output is **action items**: changes that make it not happen again.
 
 </div>
 
-<p className="fragment" style={{fontSize: '0.56em', marginTop: '0.6em', fontWeight: 'bold', color: '#e76f51'}}>
-Every "no" in the third row is a design decision you can still make this month.
+<div style={{fontSize: '0.48em', textAlign: 'left', marginTop: '0.4em'}}>
+
+**What let it happen:** a default that was right for Java and wrong for TypeScript · a file nobody had a reason to open · no signal to anyone for six days
+
+**4 minutes, whole room.** Write one action item. **Who has to be awake for it to work?**
+
+</div>
+
+<div className="fragment" style={{fontSize: '0.42em', textAlign: 'left', marginTop: '0.35em'}}>
+
+| Action item | Who has to act |
+|---|---|
+| Page an operator when a course's pushes change only ignored files | An operator, who then emails the course staff |
+| Tell the course staff directly, on their dashboard | The staff, who own the file |
+| Tell the student at push time: *you changed 10 files, and this assignment only collects `.java`, `.py`, `.md`, `.arr`* | The student, who asks a TA that day |
+| Check the patterns when the assignment is created: they match only `README.md` in this starter | Nobody. It never ships |
+| Default the patterns from the starter's own files | Nobody |
+
+</div>
+
+<p className="fragment" style={{fontSize: '0.54em', marginTop: '0.35em', fontWeight: 'bold', color: '#e76f51'}}>
+Each row down takes a person out of the loop. The alert is the top row.
 </p>
 
 <aside className="notes">
-**Fill this in on the board as each team reports, about 45 seconds per team.** Take the question, where it lives, and whether it exists today. Leave the alert row for Arc 4 if time is short.
+**This is where the talk ends, so give it the time.** About six minutes. Let the room argue. Thursday runs the whole incident loop live; today is about what we'd change.
 
-**Expect mostly "no" or "partly" in the third row, and treat it as good news.** Tuesday's investigation worked because, months ago, someone chose to keep rejected rows and record why. The teams can make the same choice for their own features now, and it costs far less than adding it after the first incident.
+**Say why blameless first, in two sentences.** The blame version of this postmortem is "the staff should have read the comment in the file." Its action item is "remind instructors to check `submissionFiles`", which needs a person to remember, every term, forever. The blameless version asks what made the mistake easy and the failure quiet, and those are things we can change in code.
 
-**Connect to their deliverables.** The Feature Freeze on Nov 23 asks for flags set and **ops playbooks drafted**. An ops playbook is these four lines plus what to do when the alert fires. They've just written the first draft.
+**Take action items before revealing the table.** Expect "add an alert" first, because the last fifteen minutes were about metrics. For each one, ask the slide's question: who has to be awake? An alert pages an operator, who doesn't own the file, doesn't know the course, and has to email the people who do. That's a person added to the loop, at the worst time.
 
-**Two teams if you're short on time,** and ask the other two to post theirs in their channel.
+**Reveal the table and read it top to bottom.** Map the rows back to the three causes. "No signal" is the first three rows, and they get better as the message moves toward the person who can act on it: the student knows within seconds, and the staff can fix it the same day. "A file nobody had a reason to open" is the fourth: check it when someone is already looking at it. "A default right for Java" is the fifth: make the default come from the starter itself. The distinction from the last slide powers every one of the first three. Recording it was never only about the alert.
 
-> **Transition:** Last piece: what you do when the alert fires, or the email arrives.
+**Be honest about the trade.** The lower rows cost more to build and need product decisions: what should the student see, and should creation-time checks block or warn? An alert is cheap and fast to write, so it's often the first action item, and that's fine as a stopgap. It's the right final answer only when nothing lower on the table is possible. A postmortem whose only action item is an alert has usually stopped one question early.
+
+**These rows are candidates, not commitments.** If any has shipped or been filed since Sep 29, say so and link it. Several would make good tickets.
+
+**Connect forward.** Thursday's game day ends with a postmortem, and it has to name a prevention item. Push them toward the lowest row they can reach. The same question is the second step of the working session, about their own tickets.
+
+> **Transition:** That's the talk. The rest of class is yours, as teams.
 </aside>
 
 </Slide>
 
 {/* ============================================ */}
-{/* ARC 4: INCIDENT RESPONSE (~5 min)            */}
-{/* Objective 5. The loop on our timeline, then  */}
-{/* the alert that should have existed.          */}
+{/* WORKING SESSION (~34 min)                    */}
+{/* One slide stays up. Teams work; you go round */}
+{/* and sign off first-ticket scopes.            */}
 {/* ============================================ */}
 
 <Slide>
 
-## The Incident Loop
+## Working Session
 
-<div style={{backgroundColor: 'rgba(100,150,255,0.14)', padding: '0.45em', borderRadius: '8px', fontSize: '0.5em', textAlign: 'left', marginTop: '0.2em'}}>
+<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.45em', fontSize: '0.46em', textAlign: 'left', marginTop: '0.3em'}}>
 
-**Definition.** An **incident** is any unplanned event that stops users from doing what they came to do. **Incident response** is the loop below.
+<div style={{backgroundColor: 'rgba(100,150,255,0.12)', padding: '0.5em', borderRadius: '8px'}}>
+
+**1 · Read your feedback** (7 min)
+
+Sort your Demo Day sheets into four piles:
+- questions you couldn't answer
+- findings people didn't believe
+- pushback on a risk or a cut
+- the "not yet" reasons
+
+Pick **2 or 3** to act on.
 
 </div>
 
-<div style={{fontSize: '0.44em', textAlign: 'left', marginTop: '0.4em'}}>
+<div style={{backgroundColor: 'rgba(42,157,143,0.12)', padding: '0.5em', borderRadius: '8px'}}>
 
-| Step | What it means | On Tuesday |
-|---|---|---|
-| **Detect** | Find out something is wrong | An email from course staff, **six days** after the first rejection |
-| **Triage** | Find out what, how bad, and for whom | Read-only queries: 40 real pushes rejected, 11 students affected |
-| **Mitigate** | Stop the harm from growing | **One commit** to `pawtograder.yml`. New pushes accepted |
-| **Recover** | Repair the damage already done | A reviewed script restored all **40** and left the 3 truly empty ones alone |
-| **Postmortem** | Write down what happened and what changes, **without blame** | This lecture, and a new alert |
+**2 · Break it down to Nov 23** (15 min)
+
+Each milestone becomes `team:` issues. Every issue has:
+- an **owner** and a **size**
+- the **milestone** it belongs to
+- one line: **how would we know it broke, and who finds out first?**
+
+</div>
+
+<div style={{backgroundColor: 'rgba(255,180,0,0.15)', padding: '0.5em', borderRadius: '8px'}}>
+
+**3 · Your first ticket** (while you work)
+
+I come to each table. Before I leave it, every member's scope is written as a comment on their issue, and I've agreed to it there.
+
+</div>
+
+<div style={{backgroundColor: 'rgba(231,111,81,0.15)', padding: '0.5em', borderRadius: '8px'}}>
+
+**4 · Post it** (last 5 min)
+
+In your team channel:
+- what you're changing because of the feedback, and why
+- a link to your issues, filtered by milestone
+- each member's first-ticket issue
+
+</div>
 
 </div>
 
 <aside className="notes">
-**Point at the board one last time.** The warm-up columns were all Triage. Most of the room jumped straight to "where would I look", which is right, and nobody asked how we'd have found out sooner, which is the Detect row.
+**Leave this slide up for the whole session.** Teams sit together. Call the time at 7 and at 22 minutes, and again 5 minutes before the end of class.
 
-**Two words need a sentence each.**
+**Step 1: the feedback.** Each team has its own pile from Thursday, or the photos. The four piles match the worksheet's prompts. Push for 2 or 3 items they will act on, each with a reason, and let them disagree with the room: "two people didn't believe our finding, and here's the trace" is a fine answer. The "not yet" pile is the most useful one, because it says what the room needed to see before Monday.
 
-**Mitigate before recover, and they're different.** Mitigation stops the bleeding: after the config commit, no new student was harmed. Recovery repairs what already happened: the 40 rejected pushes were still rejected after the fix, and restoring them took a script. People under pressure try to do both at once, and that's where mistakes happen.
+**Step 2: the breakdown.** The scope and the cut they showed on Thursday become issues. The "how would we know it broke, and who finds out first?" line is the postmortem table, applied before anything breaks. If the answer is "an operator, from an alert", ask whether the user or the staff could be told directly instead. When they write "the logs", push back with Tuesday: the logs are gone in two hours. Where does it live that you'd still have in a week? "Nowhere yet" is a good answer, because it's a design decision they can make this month. That line is also the first draft of the ops playbook that Feature Freeze (Nov 23) asks for.
 
-**This one had its mistakes, and they're worth admitting in class.** Code review of the recovery script caught three problems: the older starter-code versions that weren't re-hashed (the stale drift from Arc 2), a case where two separate database updates could briefly leave a student with no active submission and move their grading assignment, and a student's repository name in a commit message. None of them hurt anyone, because the script ran as a dry run first, then on one repository, then on the rest. That's the habit to copy: rehearse the recovery before you run it for real.
+If a team is stuck on that line, give them the email they'll get in November:
+- **Paper Exams.** *"We uploaded 300 scans and some students have no exam."* Unmatched scans per exam (a row they can count), how long the oldest unprocessed batch has waited, LLM provider errors, and how often a human overrides the suggested score.
+- **Cloud Workspaces.** *"I clicked Open and it just spins."* Time from click to a usable workspace, a synthetic readiness probe, and Forgejo webhook deliveries compared with the submissions they should produce. #981 is already a "ready" that isn't.
+- **Office Hours.** *"The queue says I'm 3rd. I've been 3rd for 40 minutes."* Realtime connections and reconnects per course, the delay between a database change and the client seeing it, and time from raised hand to helped.
+- **Usability & Permissions.** *"It let me click it, and then it said no."* Who may do what is written twice, in the UI and in database policies, and the two disagree (#983, #996, #1010). Today the user finds out first, after the click. Permission denials by page and role would tell the team; checking the policy before showing the button would mean nobody has to find out. Also axe violations over time in CI, and abandoned flows.
 
-**Blameless means the question is "what let this happen", not "who did it."** Arc 1 already answered it that way: a reasonable default, a file with no reason to open, and no alert.
+**Usability and Cloud have the thinnest backlogs,** so step 2 matters most for them. Expect them to file in the room.
 
-> **Transition:** So, the alert that should have existed. Write it with me.
-</aside>
+**Step 3: first-ticket sign-off.** Today is the deadline for agreeing scopes on the issue, so this is the real reason for the session. About 8 minutes per table. For each student: the issue, the "done" sentence with a user in it, which layers it touches, and the stacked PRs they plan. Agree to it in a comment on the issue before you move on. **Start with Cloud**, where people are most likely to arrive without a scoped ticket. Pool claims from the Agents Activity carry over. #467 and #1026 were still free as of Oct 14.
 
-</Slide>
+**Step 4: the post.** It replaces today's standup, so there's no separate standup post this morning. Read the four posts tonight. Anyone without a first-ticket link in their team's post gets a message from you tomorrow.
 
-
-<Slide>
-
-## Write the Alert That Should Have Existed
-
-<div style={{backgroundColor: 'rgba(231,111,81,0.15)', padding: '0.5em', borderRadius: '8px', fontSize: '0.54em', textAlign: 'left', marginTop: '0.3em'}}>
-
-**2 minutes, whole room.** Using `web_workflow_errors_recent`: **when** should it fire, **who** gets it, and **what do they check first**?
-
-</div>
-
-<div className="fragment" style={{fontSize: '0.5em', textAlign: 'left', marginTop: '0.5em'}}>
-
-```yaml
-- alert: PawtograderEmptySubmissionSpike
-  expr: web_workflow_errors_recent{category="empty_submission", window="1h"} > 10
-  for: 30m
-  annotations:
-    summary: "Course {{ $labels.class_id }}: many pushes rejected as empty"
-    runbook: "Check that course's submissionFiles in pawtograder.yml first"
-```
-
-</div>
-
-<p className="fragment" style={{fontSize: '0.56em', marginTop: '0.4em', fontWeight: 'bold', color: '#e76f51'}}>
-With a threshold tuned to this course's traffic, it fires on day one, not day six.
-</p>
-
-<aside className="notes">
-**Take answers before revealing the rule.** Someone will say "alert on any rejection." Ask what happens on the first night of every assignment, when dozens of students push the untouched starter code to test their setup. The alert fires every night, and within a week everyone mutes it. An alert nobody acts on is the same mistake as a test nobody maintains, from s07.
-
-**Then reveal and read it line by line.** `expr` is the condition. The number is a threshold you'd tune from history; ten per hour for one course is a starting guess. `for: 30m` means it has to stay true for half an hour, so one burst doesn't page anyone. The `runbook` line matters most: it tells the person who receives it what to check first, and here that's the file from Arc 1.
-
-**Be honest that this is a sketch, and say why the fragment hedges.** This course's rejections mostly trickled in a few at a time across six days. The busiest hour had exactly ten, all from one student pushing repeatedly, so `> 10` would never have fired. A **rate** is the better rule: rejections divided by pushes, per course, over a day. Forty-three of 44 is a rate nobody could miss. Say that, because the gap between "the obvious rule" and "the rule that fires" is exactly what they'll be graded on in Game Day 2. Before class, confirm the `window` label's value in Grafana; the rule is written against `1h`.
-
-**Connect forward.** Game Day 1 on Thursday is the first time they'll run this loop themselves, with the response narrated. Game Day 2 on Nov 5 is "write the alert that should have existed", against a fault injected into their own demo class. Today was the rehearsal.
-
-> **Transition:** Here's what's next.
+> **Transition:** Call time 3 minutes before the end, then close.
 </aside>
 
 </Slide>
 
 {/* ============================================ */}
-{/* UP NEXT */}
+{/* CLOSE */}
 {/* ============================================ */}
 
 <Slide>
@@ -901,9 +675,9 @@ With a threshold tuned to this course's traffic, it fires on day one, not day si
 
 <div style={{fontSize: '0.85em', textAlign: 'left'}}>
 
-**Wed Oct 21, Student Presentations 1**
+**Wed Oct 21, Reading Presentations 1**
 
-Then **Thu Oct 22, Game Day 1: Runner Drift.** It's announced, and the response is narrated. Bring what you learned today.
+Then **Thu Oct 22, Game Day 1: The Queue Nobody Drains.** It's announced, and the response is narrated. Bring what you learned today.
 
 </div>
 
@@ -912,12 +686,17 @@ Then **Thu Oct 22, Game Day 1: Runner Drift.** It's announced, and the response 
 **Before then:**
 
 - **Pre-reads** for Wednesday's presentations, posted today
-- **First Implementation Ticket**, due Thu Oct 29
+- **First ticket:** scope agreed on the issue today. Start the first PR in the stack this week
+- **Observability:** your function responds first on Thursday. Have Grafana and Sentry open
 
 </div>
 
 <aside className="notes">
-Close on the transition, not the reminders. Students should leave knowing what today was for: when their feature is in production and something goes wrong on Thursday, they'll know where to look, and they've started deciding what they'll be able to see.
+**Three minutes.** Close on Thursday. When something goes wrong in the game day, they'll know where to look, and they've already started deciding what their own tickets will let them see.
+
+**Game Day 1 is mid-window for the first ticket.** Say it: a ticket that has its first PR open before Thursday is in good shape. One that hasn't started by Friday is the one that opens a PR at midnight on Oct 28.
+
+**Check the Observability function has access** to Grafana and Sentry before Thursday. It's on your list.
 </aside>
 
 </Slide>

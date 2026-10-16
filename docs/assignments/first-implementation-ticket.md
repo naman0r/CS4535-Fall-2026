@@ -58,9 +58,9 @@ The checklist below is not ceremony. Every line on it corresponds to something t
 4. **CI green before Oct 29.** Your assigned reviewers start then, and a red PR spends their attention on your build.
 5. **A rollback sentence.** One line: if this turns out to be wrong in production, what do we do? Revert cleanly? Flip a flag? Fix forward with a migration? Writing this sentence changes the design more often than you'd expect. A change with no clean revert is a different change.
 6. **Review-ready by Thu Oct 29.** Steps 1 to 5 done on every PR in the stack, and the preview deploy working. That's what you demo at Demo Day 2.
-7. **Two assigned reviewers.** On Oct 29 Jon assigns each stack two reviewers through the **Code Review 1** assignment in Pawtograder: one teammate and one from another team. Their reviews are due Sun Nov 1. As [code review](./code-review.md) explains, there's no TA tier, so these two reads are most of the review your PR will get. You'll review two stacks yourself.
+7. **Two assigned reviewers.** On Oct 29 Jon assigns each stack two reviewers through the **Code Review 1** assignment in Pawtograder: one teammate and one from another team. Their reviews are due Mon Nov 2 at 10:30, before class. As [code review](./code-review.md) explains, there's no TA tier, so these two reads are most of the review your PR will get. You'll review two stacks yourself.
 8. **Address the review within 48 hours.** Don't just comply with it. If a reviewer is wrong, say why, with evidence. Quietly force-pushing over a comment is the one behavior on this list that is a real problem. Everything else here is a rough edge.
-9. **Jon merges to staging, then you watch it deploy.** Once both reviews are addressed, Jon does a last read and merges. Merged and verified by Wed Nov 4. Confirm it is live in your team's demo class. Click the thing. Look at Sentry for anything new in your area. The instructor promotes staging to production periodically, so this is the last gate before real users see it. Then post the verification in your team's channel: the PR link, the deploy timestamp, what you clicked, and what Sentry showed. That post is the evidence for this requirement.
+9. **Jon merges to staging, then you watch it deploy.** Once both reviews are addressed, Jon does a last read and merges. Merged and verified by Wed Nov 4. Confirm it is live in your team's demo class. Click the thing. The instructor promotes staging to production periodically, so this is the last gate before real users see it. Then post the verification in your team's channel: the PR link, the deploy timestamp, and what you clicked. That post is the evidence for this requirement.
 10. **A course feature flag, if the change is user-visible and unfinished or potentially breaking.** Not every ticket needs one, and reaching for a flag you do not need is its own mistake: a flag is a promise that something is incomplete, and a codebase full of flags nobody retires is worse off than one with none. Over fifteen hundred people use this product every week, though, and not one of them agreed to test a half-built or half-validated feature.
 
 Steps 9 and 10 are what this assignment has that nothing you have submitted before did. There is no "turn it in." There is "it's live, and I went and looked."
@@ -79,7 +79,7 @@ Some tickets are bigger than they look. Sizing a ticket you have not opened is g
 
 **What doesn't:** silence. A ticket you sat on for two weeks and mentioned to nobody is the exact failure this assignment is built to catch. The missing feature does less damage than the missing information. The thirty-minute rule in the [syllabus](/syllabus#communication) exists for this, and two weeks is a lot of thirty minutes.
 
-**If an assigned review hasn't come by Sun Nov 1,** tell Jon on Monday. A PR that was review-ready on Oct 29 and then waited on somebody else meets this requirement on the date it was ready. What you have to be able to show is the timestamp: the PR was green and described. Waiting quietly isn't the same as waiting on someone.
+**If an assigned review hasn't come by class on Mon Nov 2,** tell Jon in class. A PR that was review-ready on Oct 29 and then waited on somebody else meets this requirement on the date it was ready. What you have to be able to show is the timestamp: the PR was green and described. Waiting quietly isn't the same as waiting on someone.
 
 ## Grading Rubric
 
@@ -92,7 +92,7 @@ Merging and deploying this is a **Pass** requirement. Steps 5, 9 and 10 are the 
 | **Tests** | A bug fix has a test that fails without it; other changes justify what they cover and what they don't |
 | **Review** | Review-ready by Oct 29; both assigned reviews answered within 48 hours; disagreement argued with evidence |
 | **Landed** | Merged to staging by Nov 4, and you verified it running in your team's demo class |
-| **Ops** | Unfinished user-visible work sits behind a flag; you checked Sentry after the deploy |
+| **Ops** | Unfinished user-visible work sits behind a flag |
 
 ### What strong looks like
 
@@ -112,7 +112,7 @@ A PR opened Oct 29 at 9:00. "Fixed the bug" as a description. Tests that assert 
 | Game Day 1, mid-window | Thu Oct 22 |
 | Review-ready, demoed at Demo Day 2 from the preview deploy | Thu Oct 29 |
 | Code Review 1 assigned | Thu Oct 29 |
-| Reviews due | Sun Nov 1, 23:59 |
+| Reviews due | Mon Nov 2, 10:30 (before class) |
 | Review addressed | within 48 hours of each review |
 | Merged to staging and verified | Wed Nov 4 |
 | Feedback returned | ~Mon Nov 9 |

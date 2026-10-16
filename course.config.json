@@ -356,17 +356,18 @@
     },
     {
       "lectureId": "s16-talk-ops",
-      "title": "Tech Talk: Operations — IaC, Observability & Incident Response",
+      "title": "Tech Talk: Operations: Evidence, Signals & Blameless Postmortems",
       "dates": [
         "2026-10-19"
       ],
       "topics": [
-        "Environments as code",
-        "Declared vs. actual: configuration drift",
-        "Logs, metrics, traces",
-        "Detection, triage, mitigation, postmortem"
+        "Configuration as code: why the fix was a commit",
+        "Where the evidence lives",
+        "Telling a failure apart from normal",
+        "Blameless postmortems",
+        "Working session: Demo Day feedback and project breakdown"
       ],
-      "notes": "Instructor-led · three days before Game Day 1 · standup moves to a Discord post that morning",
+      "notes": "A 27-minute talk, then a 34-minute team working session: Demo Day 1 feedback, the breakdown to Nov 23, and first-ticket scopes agreed in the room. Three days before Game Day 1. Each team's end-of-class post replaces the standup.",
       "materials": {
         "slides": "/lecture-slides/s16-talk-ops"
       }
@@ -385,14 +386,15 @@
     },
     {
       "lectureId": "s18-game-day-1",
-      "title": "Game Day 1: Runner Drift (telegraphed)",
+      "title": "Game Day 1: The Queue Nobody Drains (telegraphed)",
       "dates": [
         "2026-10-22"
       ],
       "topics": [
         "Detect → triage → mitigate → postmortem",
-        "Stale runner image, scale set deregistered",
-        "Failure with no error anywhere"
+        "Grade edits that never reach the totals",
+        "A missing consumer looks like silence",
+        "Alerting on the age of the oldest message"
       ],
       "notes": "Announced in advance; instructor narrates the response",
       "materials": {
@@ -755,8 +757,9 @@
       "title": "Code Review 1: First Implementation Tickets",
       "type": "homework",
       "assignedDate": "2026-10-29",
-      "dueDate": "2026-11-01",
-      "notes": "Assigned in Pawtograder at Demo Day 2. Two first-ticket stacks to review, one from your team and one from another team. GitHub review comments on the PRs; submit the links in Pawtograder by Sun 11/1 23:59. Counts toward the Pass review count (6, at least 2 outside your team) and the Credit requirement of 3 reviews that changed the code.",
+      "dueDate": "2026-11-02",
+      "dueTime": "10:30",
+      "notes": "Assigned in Pawtograder at Demo Day 2. Two first-ticket stacks to review, one from your team and one from another team. GitHub review comments on the PRs; submit the links in Pawtograder by Mon 11/2 10:30, before class. Counts toward the Pass review count (6, at least 2 outside your team) and the Credit requirement of 3 reviews that changed the code.",
       "url": "/docs/assignments/code-review"
     },
     {
