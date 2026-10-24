@@ -382,7 +382,10 @@
         "R4: Code review at Google (Sadowski et al., ICSE-SEIP 2018) · Abhinav, Aryan and Colin",
         "R1: Flaky tests (Luo et al., FSE 2014) · Ali and Rishi"
       ],
-      "notes": "A group of three and a pair, one reading each, from the 13-reading list in the reading-presentation handout. Pre-reads posted 48h ahead. Running order: R4 first, then R1, which leads into Game Day 1 the next day. 30 minutes each: 20 of talk, 10 of discussion."
+      "notes": "A group of three and a pair, one reading each, from the 13-reading list in the reading-presentation handout. Pre-reads posted 48h ahead. Running order: R4 first, then R1, which leads into Game Day 1 the next day. 30 minutes each: 20 of talk, 10 of discussion.",
+      "materials": {
+        "slides": "pathname:///reading-presentations/r4-code-review-at-google/slides.pdf"
+      }
     },
     {
       "lectureId": "s18-game-day-1",
